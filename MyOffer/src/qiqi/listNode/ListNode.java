@@ -6,6 +6,9 @@ public class ListNode {
 
     ListNode next;
 
+    public ListNode() {
+    }
+
     ListNode(int x){
         value = x;
     }
