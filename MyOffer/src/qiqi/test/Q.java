@@ -4,4 +4,5 @@ public class Q {
     int i;
     int qq;
     int newbranch;
+    int add;
 }
