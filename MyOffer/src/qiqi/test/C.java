@@ -2,48 +2,39 @@ package qiqi.test;
 
 public class C {
 
-    public static void mergeSort(int[] a, int left, int right ){
-        if (left == right){
+    private static void radixSort(int[] array, int d){
+        if (array == null || array.length <= 0){
             return;
         }
-        int m = (left + right)/2;
-        mergeSort(a, left, m);
-        mergeSort(a, m+1, right);
-        merge(a, left, m+1,right);
-    }
+        int n = 1;
+        int k = 0;
+        int length = array.length;
+        int[][] bucket = new int[10][length];
+        int[] order = new int[10];
+        while ( n < d){
+            for (int num : array){
+                int digit = (num/n)%10;
+                bucket[digit][order[digit]] = num;
+                order[digit]++;
+            }
+            for (int i = 0; i < 10; i++){
+                if (order[i] != 0){
+                    for (int j = 0; j<order[i]; j++){
+                        array[k++] = bucket[i][j];
+                    }
+                }
+                order[i] = 0;
+            }
+            n *= 10;
+            k  = 0;
+        }
 
-    public static void merge(int[] a, int left, int m , int right){
-         int[] leftArray = new int[m-left];
-         int[] rightArray = new int[right - m +1];
-         for (int i = left; i < m ; i++){
-             leftArray[i - left] = a[i];
-         }
-         for (int i = m; i <= right ; i++){
-             rightArray[i - m] = a[i];
-         }
-         int i = 0;
-         int j = 0;
-         int k = left;
-         while ( i < leftArray.length && j < rightArray.length ){
-             if (leftArray[i] < rightArray[j]){
-                 a[k++] = leftArray[i++];
-             }else{
-                 a[k++] = rightArray[j++];
-             }
-         }
-         while (i < leftArray.length){
-             a[k++] = leftArray[i++];
-         }
-         while (j < rightArray.length){
-             a[k++] = rightArray[j++];
-         }
     }
-
     public static void main(String[] args) {
-        int[] arrays = {9, 2, 5, 1, 3, 2, 9, 5, 2, 1, 8};
-        mergeSort(arrays, 0, arrays.length - 1);
-        for (int n : arrays) {
-            System.out.print(n);
+        int[] A = new int[]{73,22, 93, 43, 55, 14, 28, 65, 39, 81};
+        radixSort(A, 100);
+        for(int num:A) {
+            System.out.println(num);
         }
     }
 }

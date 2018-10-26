@@ -8,7 +8,7 @@ public class BinaryTreeNode {
 
     public BinaryTreeNode rightNode;
 
-    public BinaryTreeNode nextNode;
+    public BinaryTreeNode parentNode;
 
     public BinaryTreeNode() {
     }

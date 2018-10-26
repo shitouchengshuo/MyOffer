@@ -43,7 +43,7 @@ public class Merge {
         int[] arrays = {9, 2, 5, 1, 3, 2, 9, 5, 2, 1, 8};
         mergeSort(arrays, 0, arrays.length - 1);
         for (int n : arrays){
-            System.out.print(n);
+            System.out.print(n + " ");
         }
     }
 }
