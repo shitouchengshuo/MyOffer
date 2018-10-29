@@ -11,13 +11,19 @@ public class BubbleSort {
        if (array == null || array.length < 1){
            return;
        }
+       boolean didSwap;
        for (int i = 0; i < array.length - 1; i++){
+           didSwap = false;
            for (int j = 0; j < array.length -i-1; j++){
                if (array[j] > array[j+1]){
                    int temp = array[j];
                    array[j] = array[j+1];
                    array[j+1] = temp;
+                   didSwap = true;
                }
+           }
+           if (didSwap == false){
+               return;
            }
        }
     }
@@ -38,8 +44,8 @@ public class BubbleSort {
     }
 
     public static void main(String[] args) {
-        //sort(arrayTest);
-        iteratorSort(arrayTest, arrayTest.length);
+        sort(arrayTest);
+        //iteratorSort(arrayTest, arrayTest.length);
         for (int i = 0; i < arrayTest.length; i++ ){
             System.out.print(arrayTest[i]);
         }

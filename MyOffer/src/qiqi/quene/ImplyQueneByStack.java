@@ -1,5 +1,6 @@
 package qiqi.quene;
 
+
 import java.util.Stack;
 
 /**
