@@ -18,7 +18,7 @@ public class ShellSort {
                 array[j + number] = key;
             }
             number = number / 2;
-        }
+        }//
     }
 
     public static void main(String[] args) {
