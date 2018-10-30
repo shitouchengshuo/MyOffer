@@ -31,20 +31,13 @@ public class PrintFromToBottom {
         //   6     10
         //  / \   / \
         // 5   7 9  11
-        BinaryTreeNode root = new BinaryTreeNode();
-        root.value = 8;
-        root.leftNode = new BinaryTreeNode();
-        root.leftNode.value = 6;
-        root.leftNode.leftNode = new BinaryTreeNode();
-        root.leftNode.leftNode.value = 5;
-        root.leftNode.rightNode = new BinaryTreeNode();
-        root.leftNode.rightNode.value = 7;
-        root.rightNode = new BinaryTreeNode();
-        root.rightNode.value = 10;
-        root.rightNode.leftNode = new BinaryTreeNode();
-        root.rightNode.leftNode.value = 9;
-        root.rightNode.rightNode = new BinaryTreeNode();
-        root.rightNode.rightNode.value = 11;
+        BinaryTreeNode root = new BinaryTreeNode(8);
+        root.leftNode = new BinaryTreeNode(6);
+        root.leftNode.leftNode = new BinaryTreeNode(5);
+        root.leftNode.rightNode = new BinaryTreeNode(7);
+        root.rightNode = new BinaryTreeNode(10);
+        root.rightNode.leftNode = new BinaryTreeNode(9);
+        root.rightNode.rightNode = new BinaryTreeNode(11);
         print(root);
 
     }
