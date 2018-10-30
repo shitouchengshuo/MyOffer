@@ -1,4 +1,4 @@
-package qiqi.quene;
+package qiqi.stack;
 
 import java.util.Stack;
 
@@ -7,16 +7,17 @@ public class MinInStack {
     private Stack<Integer> dataStack;
     // 最小数位置栈，存放数据栈中最小的数的位置
     private Stack<Integer> minStack;
+
     public MinInStack() {
         this.dataStack = new Stack<>();
         this.minStack = new Stack<>();
     }
 
-    public void push(int x) {
-        dataStack.push(x);
+    public void push(int num) {
+        dataStack.push(num);
         //push的元素小于当前minStack的最小元素，则push到minStack中
-        if (minStack.empty() || x <= minStack.peek()){
-            minStack.push(x);
+        if (minStack.empty() || num <= minStack.peek()){
+            minStack.push(num);
         }
     }
     public boolean pop() {

@@ -2,16 +2,16 @@ package qiqi.sort;
 
 public class ShellSort {
 
-    public static void shellSort(int[] array) {
+    public static void shellSort(int[] array){
+        if (array == null || array.length < 1){
+            return;
+        }
         int number = array.length / 2;
-        int i;
-        int j;
-        int key;
         while (number >= 1) {
-            for (i = number; i < array.length; i++) {
-                key = array[i];
-                j = i - number;
-                while (j >= 0 && array[j] > key) {
+            for (int i = number; i < array.length; i++){
+                int key = array[i];
+                int j = i - number;
+                while (j >= 0 && array[j] > key){
                     array[j + number] = array[j];
                     j = j - number;
                 }
