@@ -9,26 +9,19 @@ import java.util.stream.Collectors;
 
 public class A {
 
-    private static void shellSort(int[] arr) {
-        int number = arr.length/2;
-        int j;
-        while (number >= 1){
-            for (int i = number; i < arr.length; i++){
-                int key = arr[i];
-                j = i - number;
-                while (j >= 0 && key < arr[j]){
-                    arr[j+number] = arr[j];
-                    j = j - number;
-                }
-                arr[j+number] = key;
+    private static void test() {
+        for (int i = 0; i < 100; i++) {
+            int n;
+            if (i % 2 == 1) {
+                n = 1;
+            } else {
+                n = 0;
             }
-            number = number/2;
         }
-
     }
     public static void main(String[] args) {
         int[] arrays = {9, 2, 5, 1, 3, 2, 9, 5, 2, 1, 8};
-        shellSort(arrays);
+        test();
         for (int n : arrays){
             System.out.print(n + " ");
         }
