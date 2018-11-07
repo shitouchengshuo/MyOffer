@@ -3,49 +3,49 @@ package qiqi.test;
 
 import qiqi.binaryTree.BinaryTreeNode;
 import qiqi.binaryTree.SequenceOfBST;
+import qiqi.sort.QuickSort;
 
 import java.util.Arrays;
 import java.util.Set;
 import java.util.stream.Collectors;
 
 public class A {
+    private static int[] arr= new int[]{5,3,7,9,2,1,4,6,8};
+    private static void quickSort( int left, int right ) {
+        if (arr == null || arr.length <= 0){
+            throw new RuntimeException("array length must > 0");
+        }
+        if (left > right){
+            return;
+        }
+        int i = left;
+        int j  = right;
+        int base = arr[left];
+        while (i != j){
+            while (i < j && base <= arr[j]){
+                j--;
+            }
+            while (i < j && base >= arr[i]){
+                i++;
+            }
+            if (i < j) {
+                int temp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = temp;
+            }
+        }
+        //i == j
+        arr[left] = arr[i];
+        arr[i] = base;
 
-    private static boolean sequenceOfBST(int[] sequence) {
-        int length = sequence.length;
-        if (sequence == null || length <= 0){
-            return false;
-        }
-        int i = 0;
-        int root = sequence[length-1];
-        for (; i < length - 1;i++){
-            if (sequence[i] > root){
-                break;
-            }
-        }
-        for (int j  = i; j < length - 1; j++){
-            if (sequence[j] < root){
-                return false;
-            }
-        }
-        boolean leftIsBst = true;
-        if (i > 0){
-            return sequenceOfBST(Arrays.copyOfRange(sequence,0,i));
-        }
-        boolean rightIsBst = true;
-        if ( i < length-1){
-            return sequenceOfBST(Arrays.copyOfRange(sequence,i,length-1));
-        }
-        return leftIsBst & rightIsBst;
+        quickSort(left, i-1);
+        quickSort(i+1,right);
     }
         public static void main(String[] args) {
-            //int[] data = { 4, 8, 6, 12, 16, 14, 10 };
-            int[] data = { 5,7,6,9,11,10,8 };
-            //int[] data = { 7,4,6,5 };
-            //  int[] data = { 1, 2, 3, 4, 5 };
-            // int[] data = { 5, 4, 3, 2, 1 };
-            // int[] data = { 5 };
-            //int[] data = { 4, 6, 12, 8, 16, 14, 10 };
-            boolean result = A.sequenceOfBST(data);
-            System.out.println(result);
+
+            quickSort(0, arr.length-1);
+            for (int i = 0; i < arr.length; i++){
+                System.out.print(arr[i]);
+            }
         }
 }
