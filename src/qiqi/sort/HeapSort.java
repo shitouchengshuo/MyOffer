@@ -3,7 +3,7 @@ package qiqi.sort;
 public class HeapSort {
     private static void heapSort(int[] arr) {
         int len = arr.length -1;
-        for(int i = len/2; i >=0; i --){
+        for(int i = len/2; i >=0; i--){
             heapAdjust(arr,i,len);//堆构造
         }
         while (len >=0){
@@ -13,7 +13,7 @@ public class HeapSort {
     }
 
     public static  void heapAdjust(int[] arr,int i,int len){
-        int left,right,j ;
+        int left,right,j ;//i指向子树的根节点
         while((left = 2*i+1) <= len){//如果当前父节点有左节点（即有孩子节点，left为左节点）
             right = left + 1;  //右节点为左节点+1
             j = left;   //j"指针指向左节点"
@@ -27,7 +27,7 @@ public class HeapSort {
                 swap(arr,i,j);
             }
             else {
-                break; //说明比孩子节点都大，直接跳出循环语句
+                break; //说明根节点比孩子节点都大，直接跳出循环语句
             }
             i = j;
         }
@@ -38,7 +38,7 @@ public class HeapSort {
         arr[len] = temp;
     }
     public static void main(String[] args) {
-        int[] array = {20,50,20,40,70,10,80,30,60,90};
+        int[] array = {20,50,20,40,70,10,80,30,60};
         System.out.println("排序之前：");
         for(int element : array){
             System.out.print(element+" ");

@@ -22,16 +22,15 @@ public class MoreThanHalfNumber {
         // 统计result的出现次数
         int count = 0;
         for (int number : arr) {
-            if (result == number) {
+            if (number == result) {
                 count++;
             }
         }
         // 如果出现次数大于数组的一半就返回对应的值
         if (count > arr.length / 2) {
             return result;
-        }
-        // 否则输入异常
-        else {
+        }else {
+            // 否则输入异常
             throw new IllegalArgumentException("invalid input");
         }
     }
