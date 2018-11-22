@@ -8,14 +8,12 @@ public class RepetitiveNumber {
             if (numbers == null || numbers.length < 1) {
                 return -1;
             }
-
             // 判断输入的是否在[0, number.length-1]之间
             for (int i : numbers) {
                 if (i < 0 || i >= numbers.length) {
                     return -1;
                 }
             }
-
             for (int i = 0; i < numbers.length; i++) {
                 // 当number[i]与i不相同的时候一直交换
                 while (numbers[i] != i) {

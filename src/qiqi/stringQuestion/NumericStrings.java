@@ -1,5 +1,8 @@
 package qiqi.stringQuestion;
 
+/**
+ * 判断字符数组是不是代表数字
+ */
 public class NumericStrings {
 
     public static boolean isNumeric(char[] str) {

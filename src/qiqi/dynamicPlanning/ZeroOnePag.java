@@ -12,7 +12,7 @@ public class ZeroOnePag {
         int n = w.length;
         int totalWeight = 12;
         // 考虑0的状态+1，防止数组角标越界
-        //初始化:当背包不放入物品或承重为0时，其最大价值均为0f[0][1~pag]=0;f[1-n][o]=0;
+        //初始化:当背包不放入物品或承重为0时，其最大价值均为0，f[0][1~pag]=0;f[1-n][0]=0;
         // 这样才能根据初始化根据公式推算其他的值！
         int[][] bestValue = new int[n+1][totalWeight+1];
         for (int i = 1; i <= n; i++){

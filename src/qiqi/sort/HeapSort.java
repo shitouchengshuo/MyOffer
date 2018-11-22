@@ -18,6 +18,7 @@ public class HeapSort {
             right = left + 1;  //右节点为左节点+1
             j = left;   //j"指针指向左节点"
             //如果右节点大于左节点，下一个if语句比较arr[i]（父节点）与右节点
+            //这里j<len是在堆顶元素与尾节点交换后，保留排好序的最大值
             if(j < len && arr[left] < arr[right]) {
                 j ++;     //当前把"指针"指向右节点
             }

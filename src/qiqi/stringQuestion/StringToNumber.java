@@ -1,5 +1,8 @@
 package qiqi.stringQuestion;
 
+/**
+ * 字符串转数字
+ */
 public class StringToNumber {
 
     public static int stringToNumber(String str){

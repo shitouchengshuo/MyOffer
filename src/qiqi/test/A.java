@@ -11,64 +11,32 @@ import java.util.stream.Collectors;
 
 public class A {
 
-    private static void mergeSort( int[] arr,int left,int right) {
-        //如果只有一个元素，那就不用排序了
-        if (left == right) {
+    public static void permutation(char[] chars) {
+
+        if (chars == null || chars.length <= 0){
             return;
-        } else {
-            //取中间的数，进行拆分
-            int mid = (left + right) / 2;
-            //左边的数不断进行拆分
-            mergeSort(arr, left, mid);
-            //右边的数不断进行拆分
-            mergeSort(arr, mid + 1, right);
-            //合并
-            merge(arr, left, mid + 1, right);
         }
-
-
-    }
-    private static void merge(int[] arr, int left, int mid, int right){
-        int[] leftArray = new int[mid -left];
-        int[] rightArray = new int[right - mid + 1];
-        for (int i = left; i < mid; i++){
-            leftArray[ i - left] = arr[i];
-        }
-        for (int i = mid; i <= right; i++){
-            rightArray[i - mid] = arr[i];
-        }
-
-
-        int i = 0;
-        int j = 0;
-        int k = left;
-        while ( i< leftArray.length && j < rightArray.length) {
-            if (leftArray[i] < rightArray[j]) {
-                arr[k++] = leftArray[i++];
-            } else {
-                arr[k++] = rightArray[j++];
-            }
-        }
-        while (i < leftArray.length){
-            arr[k++] = leftArray[i++];
-        }
-        while (j < rightArray.length){
-            arr[k++] = rightArray[j++];
-        }
-
+        permutation(chars, 0);
     }
 
-    private static void swap1(int[] arr, int i , int j){
-        int temp = arr[i];
-        arr[i] = arr[j];
-        arr[j] = temp;
-
+    public static void permutation(char[] chars, int begin){
+        if (chars.length - 1 == begin){
+            System.out.println(new String(chars)+" ");
+        }
+        for (int i = begin; i < chars.length; i++){
+            char temp = chars[begin];
+            chars[begin] = chars[i];
+            chars[i] = temp;
+            permutation(chars, begin+1);
+        }
     }
+
     public static void main(String[] args) {
-        int[] arrays = {9, 2, 5, 1, 3, 2, 9, 5, 2, 1, 8};
-        mergeSort(arrays, 0, arrays.length - 1);
-        for (int n : arrays){
-            System.out.print(n + " ");
-        }
+        char[] c1 = {'a', 'b', 'c'};
+        permutation(c1);
+        System.out.println();
+
+        char[] c2 = {'a', 'b', 'c', 'd'};
+        permutation(c2);
     }
 }
