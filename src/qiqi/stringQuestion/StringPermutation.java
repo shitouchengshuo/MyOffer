@@ -11,7 +11,9 @@ public class StringPermutation {
         if(start == end) {
             System.out.println(chars);
         } else {
+
             for(int i=start; i<=end; i++) {
+                System.out.println("i:"+i+"start:"+start+"end:"+end);
                 swap(chars,i,start); //交换前缀，使其产生下一个前缀
                 permutation(chars, start+1, end);
                 swap(chars,start,i); //将前缀换回，继续做上一个前缀的排列

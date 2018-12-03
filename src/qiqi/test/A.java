@@ -11,32 +11,32 @@ import java.util.stream.Collectors;
 
 public class A {
 
-    public static void permutation(char[] chars) {
+    public static void permutation(int[] array) {
 
-        if (chars == null || chars.length <= 0){
+        if (array == null || array.length <= 0){
             return;
         }
-        permutation(chars, 0);
-    }
-
-    public static void permutation(char[] chars, int begin){
-        if (chars.length - 1 == begin){
-            System.out.println(new String(chars)+" ");
-        }
-        for (int i = begin; i < chars.length; i++){
-            char temp = chars[begin];
-            chars[begin] = chars[i];
-            chars[i] = temp;
-            permutation(chars, begin+1);
+        int number = array.length/2;
+        while (number >= 1){
+            for (int i = 1; i < array.length; i++){
+                 int key = array[i];
+                 int j = i - number;
+                 while (j >= 0 && key < array[j]){
+                     array[j + number] = array[j];
+                     j = j -number;
+                 }
+                 array[j + number] = key;
+            }
+            number = number/2;
         }
     }
 
     public static void main(String[] args) {
-        char[] c1 = {'a', 'b', 'c'};
-        permutation(c1);
-        System.out.println();
+        int[] array = new int[]{2,4,6,1,3,5};
+        permutation(array);
+        for (int num : array){
+            System.out.print(num+" ");
+        }
 
-        char[] c2 = {'a', 'b', 'c', 'd'};
-        permutation(c2);
     }
 }
