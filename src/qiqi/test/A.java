@@ -5,38 +5,44 @@ import qiqi.binaryTree.BinaryTreeNode;
 import qiqi.binaryTree.SequenceOfBST;
 import qiqi.sort.QuickSort;
 
-import java.util.Arrays;
-import java.util.Set;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class A {
 
-    public static void permutation(int[] array) {
+    private static String str = "arabaacfr";
 
-        if (array == null || array.length <= 0){
-            return;
+    private static int getLongestSubStr(String str) {
+        if(str == null){
+            return 0;
         }
-        int number = array.length/2;
-        while (number >= 1){
-            for (int i = 1; i < array.length; i++){
-                 int key = array[i];
-                 int j = i - number;
-                 while (j >= 0 && key < array[j]){
-                     array[j + number] = array[j];
-                     j = j -number;
-                 }
-                 array[j + number] = key;
+        int[] arr = new int[26];
+        int max = 0;
+        int count = 0;
+        for (int i = 0; i < 26; i++){
+            arr[i] = -1;
+        }
+        for (int i = 0; i < str.length(); i++){
+            if (str.charAt(i) - 'a' == -1){
+                arr[str.charAt(i) - 'a'] = i;
+                count++;
+            }else {
+                if (i - arr[str.charAt(i) - 'a'] > count){
+                    count++;
+                }else {
+                    count = i - arr[str.charAt(i) - 'a'];
+                }
+                arr[str.charAt(i) - 'a'] = i;
             }
-            number = number/2;
+            if (max < count){
+                max = count;
+            }
         }
+        return max;
     }
 
     public static void main(String[] args) {
-        int[] array = new int[]{2,4,6,1,3,5};
-        permutation(array);
-        for (int num : array){
-            System.out.print(num+" ");
-        }
+        System.out.println(getLongestSubStr(str));
 
     }
 }

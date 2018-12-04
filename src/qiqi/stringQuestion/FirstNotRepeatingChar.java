@@ -11,7 +11,7 @@ public class FirstNotRepeatingChar {
 
     public static char firstNotRepeatingChar(String str){
         if (str == null || str.length() <= 0){
-            return '0';
+            return '0';//  '\0'表示字符串结束
         }
         char[] chars = str.toCharArray();
         char repeatChar = '0';
@@ -44,7 +44,7 @@ public class FirstNotRepeatingChar {
                map.put(c, i);
            }
         }
-        char result = '\0';
+        char result = '0';
         Integer index = Integer.MAX_VALUE;
         for (Map.Entry<Character,Integer> entry: map.entrySet()){
             if (entry.getValue() >= 0 && entry.getValue() < index){
@@ -55,7 +55,7 @@ public class FirstNotRepeatingChar {
         return result;
     }
     public static void main(String[] args) {
-        System.out.println(firstNotRepeatingChar("aaaccdeff"));
+        System.out.println(firstNotRepeatingChar("aaaccddeeff"));
         System.out.println(firstNotRepeatingCharByHashMap("aaaccdeff"));
     }
 }
