@@ -1,5 +1,10 @@
 package qiqi.array;
 
+/**
+ * 在一个长度为n的数组里所有数字都在0~n-1范围内。数组中某些数字是重复的，
+ * 但不知道有几个数字重复了,找出重复数字。
+ * 本方法通过建立新数组
+ */
 public class RepetitiveNumberByNewArray {
 
     private static int[] a = {2,4,5,1,1,3};

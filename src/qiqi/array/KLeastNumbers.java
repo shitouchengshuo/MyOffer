@@ -21,7 +21,7 @@ public class KLeastNumbers {
     }
 
     //快速划分
-    public static void bypartition(int[] arr, int k){
+    public static void byPartition(int[] arr, int k){
         if (arr == null || arr.length <= 0 || k <= 0 || k > arr.length){
             return;
         }
@@ -41,6 +41,7 @@ public class KLeastNumbers {
             System.out.print(arr[i]+" ");
         }
     }
+
     //划分方法
     private static int partition(int[] array, int left, int right) {
         int i,j,base,temp;
@@ -66,8 +67,9 @@ public class KLeastNumbers {
         array[i] = base;
         return i;
     }
+
     public static void main(String[] args) {
         int[] arr = new int[]{4,5,1,6,2,7,3,8,9,10,0};
-        bypartition(arr,4);
+        byPartition(arr,4);
     }
 }
