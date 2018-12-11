@@ -1,5 +1,8 @@
 package qiqi.binaryTree;
 
+/**
+ * 二叉树定义
+ */
 public class BinaryTreeNode {
 
     int value;

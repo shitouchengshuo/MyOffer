@@ -2,6 +2,10 @@ package qiqi.binaryTree;
 
 public class OrderBinaryTree {
 
+    /**
+     * 前序遍历
+     * @param root
+     */
     public static void preOrder(BinaryTreeNode root){
         if (root != null){
             System.out.print(root.value +" ");
@@ -10,6 +14,9 @@ public class OrderBinaryTree {
         }
     }
 
+    /**
+     * 中序遍历
+     */
     public static void inOrder(BinaryTreeNode root){
         if (root != null){
             inOrder(root.leftNode);
@@ -18,6 +25,10 @@ public class OrderBinaryTree {
         }
     }
 
+    /**
+     * 后序遍历
+     * @param root
+     */
     public static void postOrder(BinaryTreeNode root){
         if (root != null){
             postOrder(root.leftNode);
