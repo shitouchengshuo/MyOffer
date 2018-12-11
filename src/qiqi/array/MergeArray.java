@@ -2,10 +2,13 @@ package qiqi.array;
 
 import java.util.HashSet;
 
+/**
+ * 合并两个有序数组
+ */
 public class MergeArray {
 
-    private static int[] a = {1,4,4,6,7,9};
-    private static int[] b = {1,2,4,4,5,8};
+    private static int[] a = {1, 4, 4, 6, 7, 9};
+    private static int[] b = {1, 2, 4, 4, 5, 8};
 
     public static int[] merge( int[] a,  int[] b){
         if (a == null || a.length <= 0 || b == null || b.length <= 0){
