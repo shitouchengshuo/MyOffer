@@ -3,7 +3,7 @@ package qiqi.stringQuestion;
 /**
  * 判断字符数组是不是代表数字
  */
-public class NumericStrings {
+public class NumberIsStrings {
 
     public static boolean isNumeric(char[] str) {
         if (str == null || str.length <= 0){
@@ -40,7 +40,7 @@ public class NumericStrings {
             }
             return false;
         }
-        //只是数字
+        //不包含小数及指数形式的数字
         return true;
     }
 
