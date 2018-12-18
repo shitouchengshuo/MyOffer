@@ -6,6 +6,7 @@ import java.util.Map;
 /**
  * 题目
  * 在字符串中找出第一个只出现一次的字符。
+ *
  * 解题思路：
  * 第一种：直接求解
  * 从头开始扫描这个字符串中的每个字符。当访问到某字符时拿这个字符和后面的每个字符相比较，如果在后面没有发现重复的字符，
@@ -23,6 +24,9 @@ import java.util.Map;
  */
 public class FirstNotRepeatingChar {
 
+    /**
+     * 遍历字符串，O(n2)
+     */
     public static char firstNotRepeatingChar(String str){
         if (str == null || str.length() <= 0){
             return '0';//  '\0'表示字符串结束
@@ -45,6 +49,9 @@ public class FirstNotRepeatingChar {
         return '0';
     }
 
+    /**
+     *  HashMap  O(n)
+     */
     public static char firstNotRepeatingCharByHashMap(String str) {
         if (str == null || str.length() <= 0) {
             throw new IllegalArgumentException("Arg should not be null or empty");
@@ -52,7 +59,7 @@ public class FirstNotRepeatingChar {
         Map<Character,Integer> map = new HashMap<>();
         for (int i = 0; i < str.length(); i++){
             char c = str.charAt(i);
-           if (map.containsKey(str.charAt(i))){
+           if (map.containsKey(c)){
                map.put(c, -2);
            }else {
                map.put(c, i);
@@ -69,7 +76,7 @@ public class FirstNotRepeatingChar {
         return result;
     }
     public static void main(String[] args) {
-        System.out.println(firstNotRepeatingChar("aaaccddeeff"));
+        System.out.println(firstNotRepeatingChar("aaaccddeegff"));
         System.out.println(firstNotRepeatingCharByHashMap("aaaccdeff"));
     }
 }
