@@ -22,6 +22,7 @@ public class BubbleSort {
                    didSwap = true;
                }
            }
+           //如果比较一轮后还没有发生交换，说明已经排好序
            if (didSwap == false){
                return;
            }
