@@ -31,8 +31,8 @@ public class AddTwoNumbers {
     public static int add(int num1, int num2){
         int sum, carry;
         do{
-            sum = num1 ^ num2;    //异或
-            carry = (num1&num2) <<1; //与操作 然后左移
+            sum = num1 ^ num2;    //异或 == 两数相加不进位
+            carry = (num1 & num2) << 1; //与操作，然后左移 == 计算进位值
             num1 = sum;
             num2 = carry;
         }while(num2 != 0);

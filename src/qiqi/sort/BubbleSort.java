@@ -1,7 +1,7 @@
 package qiqi.sort;
 
 /**
- * 冒泡排序 平均O(n^2)   最好O(n)	 最坏O(n^2)
+ * 冒泡排序 稳定排序 平均O(n^2)   最好O(n)	 最坏O(n^2)
  */
 public class BubbleSort {
 
@@ -29,11 +29,14 @@ public class BubbleSort {
        }
     }
 
+    /**
+     * 递归的方式
+     */
     public static void iteratorSort(int[] array, int end){
         if (end < 0){
             return;
         }
-        for (int i = 0; i < end-1; i++){
+        for (int i = 0; i < end - 1; i++){
             if (array[i] > array[i+1]){
                 int temp = array[i];
                 array[i] = array[i+1];
