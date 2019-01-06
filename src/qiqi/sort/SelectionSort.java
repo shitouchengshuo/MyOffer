@@ -1,7 +1,7 @@
 package qiqi.sort;
 
 /**
- * 选择排序 不稳定排序 最好、最坏、平均:O(n^2) 
+ * 选择排序 不稳定排序 最好、最坏、平均:O(n^2)
  */
 public class SelectionSort {
 

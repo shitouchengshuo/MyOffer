@@ -9,7 +9,7 @@ import java.util.Set;
  * 长度为4。
  *
  * 解题思路
- * 一：遍历所有子字符串 O（n3）
+ * 一：遍历所有子字符串 O（n^3）
  * 二：动态规划 O（n）
  * 我们直接以arabcacfr为例子进行分析，从头开始遍历字符串的字符。
  * 1、第一个字符a，此前a没有出现过，所以长度为f(1)=1，最长的子字符串是a; 
@@ -31,7 +31,7 @@ public class LongestSubstringWithoutDup {
     private static String str = "arabaacfr";
 
     /**
-     *  遍历所有子字符串 O（n3）
+     *  遍历所有子字符串 O（n^3）
      */
     public static void getSubstring(String str){
         if (str == null || str.length() <= 0){
