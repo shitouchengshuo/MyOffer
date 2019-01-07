@@ -29,6 +29,7 @@ public class QuickSort {
         array[i] = base;
         return i;
     }
+    
     public static void sort(int[] array, int left, int right){
         if (left > right){
             return;
@@ -37,6 +38,7 @@ public class QuickSort {
         sort(array,left,p-1);
         sort(array,p+1, right);
     }
+
     public static void main(String[] args) {
         int[] array = new int[]{5,3,7,9,2,1,4,6,8,6,6,3,3,2,2,1,1,9,9,9,0,0,0};
         sort(array,0, array.length-1);
