@@ -17,21 +17,20 @@ public class BinarySearch {
     /**
      * 非递归
      */
-    private  static int binarySearch(int[] array, int number){
-        if (array == null || array.length <= 0){
+    private  static int binarySearch(int[] array, int target){
+        if (array == null || array.length < 1){
             return -1;
         }
-        int left = 0;
-        int right = array.length - 1;
-        while( left <= right){
-            int mid = left + (right - left) / 2;
-            if (array[mid] == number){
+        int left = 0,right = array.length - 1; //在[left ... rigjt]闭区间范围里寻找target
+        while (left <= right){   //当left = right，区间[left ... rigjt]依然有效，有一个值
+            int mid = left + (right - left) / 2; //( left+right)/2  当left与right值很大时，加法容易产生整形溢出
+            if (array[mid] == target){
                 return mid;
             }
-            if (array[mid] > number){
-                right = mid -1;
+            if (array[mid] > target){
+                right = mid - 1;
             }else {
-                left = mid +1;
+                left = mid + 1;
             }
         }
         return -1;
@@ -62,4 +61,5 @@ public class BinarySearch {
         System.out.println(binarySearch(arrayTest, 33));
         System.out.println(binarySearch1(arrayTest, 0,arrayTest.length - 1, 33));
     }
+
 }
