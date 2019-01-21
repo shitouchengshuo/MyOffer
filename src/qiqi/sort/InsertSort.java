@@ -6,6 +6,7 @@ package qiqi.sort;
 public class InsertSort {
 
     private static int[] array = new int[]{5,3,7,4,2,1,4,6,8};
+
     public static void insertSort(int[] arr) {
         if (arr == null || arr.length < 1){
             return;
@@ -14,10 +15,10 @@ public class InsertSort {
             int key = arr[i];
             int j = i - 1;
             while (j >= 0 && arr[j] > key){
-                arr[j+1] = arr[j];
+                arr[j + 1] = arr[j];
                 j--;
             }
-            arr[j+1] = key;
+            arr[j + 1] = key;
         }
     }
 

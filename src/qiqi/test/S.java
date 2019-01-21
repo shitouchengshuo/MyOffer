@@ -4,25 +4,28 @@ public class S {
 
     private static int[] array = new int[]{5,3,7,4,2,1,4,6,8};
 
-    public static void selectionSort(int[] a) {
+    public static void shellSort(int[] a) {
         if (a == null || a.length < 1) {
             return;
         }
-        for (int i = 0; i < a.length; i++){
-            int min = i;
-            for (int j = i; j < a.length; j++){
-                if (a[min] > a[j]){
-                    min = j;
+        int number = a.length /2;
+        while (number >= 1){
+            for (int i = number; i < a.length; i++ ){
+                int key = a[i];
+                int j = i - number;
+                while (j >= 0 && a[j] > key){
+                    a[j + number] = a[j];
+                    j -= number;
                 }
+                a[j + number] = key;
             }
-            int temp = a[i];
-            a[i] = a[min];
-            a[min] = temp;
+            number /= 2;
         }
+
     }
 
     public static void main(String[] args) {
-        selectionSort(array);
+        shellSort(array);
         for (int n : array){
             System.out.print(n);
         }
