@@ -33,7 +33,6 @@ public class Sort012 {
      *  三路快排思路
      * 时间复杂度 O(n) 扫描一遍数组
      * 空间复杂度 O(1) new了一个数组
-     * 
      */
     public static void sort2(int[] nums) {
         int zero = -1;
