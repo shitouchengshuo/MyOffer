@@ -1,50 +1,39 @@
 package qiqi.test;
 
 public class A {
-    public static void  mergeSort(int[] arrays, int left, int right){
-        if (arrays == null ||arrays.length <= 0){
-            return;
-        }
-        if (left == right){
-            return;
-        }
-        int mid = (left + right)/2;
-        mergeSort(arrays, left, mid);
-        mergeSort(arrays, mid + 1, right);
-        merge(arrays, left, mid+1, right);
-    }
+        private static int[] arr = new int[]{5,3,7,9,2,1,4,6,8,6,6,3,3,2,2,1,1,9,9,9};
 
-    public static void  merge(int[] arrays, int left, int mid, int right){
-        int[] leftArray = new int[mid - left];
-        int[] rightArray = new int[right - mid + 1];
-        for (int i = left; i < mid; i++){
-            leftArray[i - left] = arrays[i];
+        static void quickSort3Ways ( int left, int right ) {
+            if (left >= right){
+             return;
+            }
+            int v = arr[left];
+            int i = left + 1;
+            int lt = left;
+            int gt = right;
+            while (i <= gt){
+                if (arr[i] < v){
+                    swap(lt++, i++);
+                }else if (arr[i] > v){
+                    swap(gt--, i);
+                }else {
+                    i++;
+                }
+            }
+            quickSort3Ways(left, lt - 1);
+            quickSort3Ways(gt + 1, right);
         }
-        for (int i = mid; i <= right; i++){
-            rightArray[i - mid] = arrays[i];
+        static void swap( int i,int j ){
+            int temp = arr[i];
+            arr[i] = arr[j];
+            arr[j] = temp;
         }
-        int i = 0,j = 0;
-        int k = left;
-        while ( i < leftArray.length && j < rightArray.length ){
-            if (leftArray[i] < rightArray[j]){
-                arrays[k++] = leftArray[i++];
-            }else {
-                arrays[k++] = rightArray[j++];
+
+        public static void main(String[] args) {
+
+            quickSort3Ways(0, arr.length-1);
+            for (int i = 0; i < arr.length; i++){
+                System.out.print(arr[i]);
             }
         }
-        while (i < leftArray.length){
-            arrays[k++] = leftArray[i++];
-        }
-        while (j < rightArray.length){
-            arrays[k++] = rightArray[j++];
-        }
-    }
-
-    public static void main(String[] args) {
-        int[] arrays = {8, 4, 5, 7, 1, 3, 6, 2};
-        mergeSort(arrays, 0, arrays.length - 1);
-        for (int n : arrays){
-            System.out.print(n + " ");
-        }
-    }
 }
