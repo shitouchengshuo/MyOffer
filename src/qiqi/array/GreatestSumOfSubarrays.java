@@ -6,7 +6,7 @@ package qiqi.array;
  * 子数组和最大的应该是：[9, 8, 3]，输出20，再比如数组为
  * [1, -2, 3, 10, -4, 7, 2, -5]，和最大的子数组为[3, 10, -4, 7, 2]，输出18。
  * 思路：
- * 1、用暴力的方法，找出所有可能的子数组，然后找和最大的那个。这是可行的，但是时间复杂度最快也为O（n2）。
+ * 1、用暴力的方法，找出所有可能的子数组，然后找和最大的那个。这是可行的，但是时间复杂度最快也为O（n^2）。
  * 2、一般方法，时间复杂度也为 n 。我们从头开始累加数组的元素，初始值 sum 为 0 。第一步 把 1 累加 则 sum = 1,
  * 接着-2累加sum = -1，再接着3累加sum = 2，但是此时我们发现sum < 3，也就是说从第一个元素开始累加到第三个元素的和sum比
  * 第三个元素还要小，那么我们舍去前面的累加值，从第三个元素开始累加，此时sum = 3。
@@ -17,9 +17,28 @@ package qiqi.array;
  */
 public class GreatestSumOfSubarrays {
 
+    //暴力O(n^2)方法
+    public static int findGreatestSumOfSubarrays1(int[] arrays){
+        if (arrays == null || arrays.length <= 0){
+            return 0;
+        }
+        int max = 0;
+        for (int i= 0; i< arrays.length; i++){
+            int sum = 0;
+            for (int j = i; j < arrays.length; j++){
+                sum += arrays[j];
+                if ( sum > max){
+                    max = sum;
+                }
+            }
+        }
+        return max;
+    }
+
+
     private static boolean invalidInput = false;
     //O(n)方法
-    public static int greatestSumOfSubarrays(int[] arrays){
+    public static int findGreatestSumOfSubarrays2(int[] arrays){
         if (arrays == null || arrays.length <= 0){
             invalidInput = true;
             return 0;
@@ -37,8 +56,9 @@ public class GreatestSumOfSubarrays {
         }
         return max;
     }
+
     //用动态规划
-    public static int findGreatestSumOfSubArray(int[] arrays){
+    public static int findGreatestSumOfSubarrays3(int[] arrays){
         int sum = arrays[0];
         int max = arrays[0];
         for(int i = 1; i < arrays.length; i++){
@@ -55,8 +75,10 @@ public class GreatestSumOfSubarrays {
     }
 
     public static void main(String[] args) {
-        int[] arrays = new int[]{1 , -2 , 3 , 10 , -4 , 7 , 2 , -5};
-        System.out.println(greatestSumOfSubarrays(arrays));
-        System.out.println(findGreatestSumOfSubArray(arrays));
+        // int[] arrays = new int[]{1 , -2 , 3 , 10 , -4 , 7 , 2 , -5};
+        int[] arrays = new int[]{9, 8, 3, -5, 6, -7};
+        System.out.println(findGreatestSumOfSubarrays1(arrays));
+        System.out.println(findGreatestSumOfSubarrays2(arrays));
+        System.out.println(findGreatestSumOfSubarrays3(arrays));
     }
 }

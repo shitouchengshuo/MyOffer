@@ -40,7 +40,7 @@ public class QuickSort3Ways {
 
         while ( i <= gt ) {
             if (arr[i] < v) {       //小于切分元素的放在lt左边，因此指针lt和指针i整体右移
-                swap(lt++, i++);    // i++   表示继续遍历下一个元素  lt++  表示<v部分多了一个元素
+                swap(lt++, i++);    // i++   表示继续遍历下一个元素  lt++  表示<v的部分多了一个元素
             }else if (arr[i] > v){  //大于切分元素的放在gt右边，因此指针gt需要左移
                 swap(i, gt--);      // 此时i不用动，因为交换过来的元素还没有考虑他的大小
             }else{
