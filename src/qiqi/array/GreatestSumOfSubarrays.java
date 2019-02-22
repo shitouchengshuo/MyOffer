@@ -13,7 +13,6 @@ package qiqi.array;
  * 3、动态规划思想。状态方程 ： max(dp[i])=getMax(max(dp[i-1])+arr[i],arr[i])。
  * 上面式子的意义是：我们从头开始遍历数组，遍历到数组元素arr[i]时，连续的最大的和可能为max(dp[i-1])+arr[i]，也可能为arr[i]，
  * 做比较即可得出哪个更大，取最大值。时间复杂度为n。
- * Created by ZhaoQiqi on 2018/11/12.
  */
 public class GreatestSumOfSubarrays {
 
@@ -35,9 +34,8 @@ public class GreatestSumOfSubarrays {
         return max;
     }
 
-
-    private static boolean invalidInput = false;
     //O(n)方法
+    private static boolean invalidInput = false;
     public static int findGreatestSumOfSubarrays2(int[] arrays){
         if (arrays == null || arrays.length <= 0){
             invalidInput = true;

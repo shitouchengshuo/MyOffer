@@ -33,7 +33,7 @@ public class LongestSubstringWithoutDup {
     /**
      *  遍历所有子字符串 O（n^3）
      */
-    public static void getSubstring(String str){
+    public static void getLongestSubStr0(String str){
         if (str == null || str.length() <= 0){
             return;
         }
@@ -69,9 +69,30 @@ public class LongestSubstringWithoutDup {
     }
 
     /**
+     * 滑动窗口法  O(n)
+     */
+    public static int getLongestSubStr1(String str){
+        if (str == null){
+            return 0;
+        }
+        char[] chars = str.toCharArray();
+        int[] frequence = new int[256];
+        int left = 0,right= -1;
+        int result = 0;
+        while ( left < str.length()){
+            if ( right + 1 < chars.length && frequence[chars[right+1]] == 0){
+                frequence[chars[++right]]++;
+            }else {
+                frequence[chars[left++]]--;
+            }
+            result = right - left + 1 > result ? right - left + 1: result;
+        }
+        return result;
+    }
+    /**
      * 动态规划 O（n）
      */
-    private static int getLongestSubStr(String str) {
+    private static int getLongestSubStr2(String str) {
         if(str == null){
             return 0;
         }
@@ -82,10 +103,10 @@ public class LongestSubstringWithoutDup {
             arr[i] = -1;
         }
         for(int i = 0; i < str.length(); i++){
-            if(arr[str.charAt(i) - 'a'] == -1){
+            if(arr[str.charAt(i) - 'a'] == -1){ //说明当前字符未重复
                 arr[str.charAt(i) - 'a'] = i;
                 count++;
-            }else if(arr[str.charAt(i)- 'a'] != -1){
+            }else if(arr[str.charAt(i)- 'a'] != -1){//当前字符重复
                 //说明当前的字符str.charAt(i)上一次出现的位置在现在统计的子字符串前面，对现在的统计没影响
                 if(i - arr[str.charAt(i) - 'a'] > count){
                     count++;
@@ -105,8 +126,9 @@ public class LongestSubstringWithoutDup {
     }
 
     public static void main(String[] args) {
-        getSubstring(str);
-        System.out.println(getLongestSubStr(str));
+        // getLongestSubStr0(str);
+        // System.out.println(getLongestSubStr1(str));
+        System.out.println(getLongestSubStr2(str));
 
     }
 }

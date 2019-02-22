@@ -2,24 +2,54 @@ package qiqi.test;
 
 public class A {
 
-    private static int[] arr = new int[]{5,3,7,9,2,1,4,6,8,6,6,3,3,2,2,1,1,9,9,9};
 
-    static void quickSort3Ways ( int left, int right ) {
-       if (left > right){
-           return;
-       }
+    public static void mergeSort(int[] arrays, int left, int right) {
+        if (left == right ){
+            return;
+        }
+        int mid  = (left + right)/2;
+        mergeSort(arrays, left, mid);
+        mergeSort(arrays, mid+1, right);
+        merge(arrays, left, mid+1, right);
     }
-    static void swap( int i,int j ){
-        int temp = arr[i];
-        arr[i] = arr[j];
-        arr[j] = temp;
+
+    /**
+     * 合并数组
+     */
+    public static void merge(int[] arrays, int left, int mid, int right) {
+        int[] leftArrays = new int[mid - left];
+        int[] rightArrays = new int[right - mid + 1];
+        for (int i = left; i < mid; i++){
+            leftArrays[i - left] = arrays[i];
+        }
+        for (int i = mid; i <= right; i++){
+            rightArrays[i - mid] = arrays[i];
+        }
+
+
+        int k = left;
+        int i = 0;
+        int j = 0;
+        while (i < leftArrays.length && j < rightArrays.length){
+            if (leftArrays[i] < rightArrays[j]){
+                arrays[k++] = leftArrays[i++];
+            }else {
+                arrays[k++] = rightArrays[j++];
+            }
+        }
+        while (i <leftArrays.length){
+            arrays[k++] = leftArrays[i++];
+        }
+        while (j < rightArrays.length){
+            arrays[k++] = rightArrays[j++];
+        }
     }
 
     public static void main(String[] args) {
-
-        quickSort3Ways(0, arr.length-1);
-        for (int i = 0; i < arr.length; i++){
-            System.out.print(arr[i]);
+        int[] arrays = {8, 4, 5, 7, 1, 3, 6, 2};
+        mergeSort(arrays, 0, arrays.length - 1);
+        for (int n : arrays){
+            System.out.print(n + " ");
         }
     }
 }

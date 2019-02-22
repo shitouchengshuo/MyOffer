@@ -48,8 +48,8 @@ public class BubbleSort {
     }
 
     public static void main(String[] args) {
-        sort(arrayTest);
-        //iteratorSort(arrayTest, arrayTest.length);
+        // sort(arrayTest);
+        iteratorSort(arrayTest, arrayTest.length);
         for (int i = 0; i < arrayTest.length; i++ ){
             System.out.print(arrayTest[i]);
         }
