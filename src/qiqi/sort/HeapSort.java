@@ -22,7 +22,7 @@ public class HeapSort {
             right = left + 1;  //右节点为左节点+1
             j = left;   //j"指针指向左节点"
             //如果右节点大于左节点，下一个if语句比较arr[i]（父节点）与右节点
-            //这里j<len是在堆顶元素与尾节点交换后，不再让尾节点参与交换（80...），以此来保留排好序的最大值
+            //这里j<len是在堆顶元素与尾节点交换后，不再让尾节点参与交换（10...），以此来保留排好序的最大值
             if( j < len && arr[left] < arr[right]) {
                 j = right;     //当前把"指针"指向右节点
             }
@@ -33,7 +33,7 @@ public class HeapSort {
             }else {
                 break; //说明根节点比孩子节点都大，直接跳出循环语句
             }
-            i = j; //1.堆顶元素80与第二个父节点元素20交换后，20还有子节点5,6元素需要进行比较
+            i = j; //1.堆顶元素4与第二个父节点元素10交换后，4还有子节点5,1,5大于4需要调整
                    //2.堆顶元素与尾节点交换后，调整是从堆顶开始，用于控制流程
         }
     }
@@ -44,7 +44,7 @@ public class HeapSort {
         arr[len] = temp;
     }
     public static void main(String[] args) {
-        int[] array = {20,50,20,40,70,10,80,30,60};
+        int[] array = {4,10,3,5,1};
         System.out.println("排序之前：");
         for(int element : array){
             System.out.print(element+" ");
