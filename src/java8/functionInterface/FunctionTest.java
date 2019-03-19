@@ -3,6 +3,7 @@ package java8.functionInterface;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 import java.util.function.Function;
 
 /**
@@ -23,5 +24,18 @@ public class FunctionTest {
         return result;
     }
 
-    List<Integer> list = map(Arrays.asList("lambdas","in","action"),(String s) ->s.length());
+    public static void main(String[] args) {
+        //s.length()是Function接口的apply方法的实现
+        List<Integer> list = map(Arrays.asList("lambdas","in","action"),(String s) ->s.length());
+
+
+        List<Integer> someNumbers = Arrays.asList(1, 2, 3, 4, 5);
+        Optional<Integer> firstSquareDivisibleByThree =
+                someNumbers.stream()
+                        .map(x -> x * x)
+                        .filter(x -> x % 3 == 0)
+                        .findFirst();
+        System.out.println(firstSquareDivisibleByThree);
+    }
+
 }
