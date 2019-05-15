@@ -2,6 +2,9 @@ package java8.entity;
 
 import lombok.Data;
 
+import java.util.ArrayList;
+import java.util.List;
+
 
 @Data
 public class User {
@@ -19,5 +22,11 @@ public class User {
 
     public int compareByAgeThenName(){
         return 1;
+    }
+
+    public static void main(String[] args) {
+        List<User> userList = new ArrayList<>();
+        userList.add(null);
+        System.out.println(userList.size());
     }
 }

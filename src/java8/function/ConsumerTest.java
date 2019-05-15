@@ -1,4 +1,4 @@
-package java8.functionInterface;
+package java8.function;
 
 import java.util.Arrays;
 import java.util.List;
@@ -6,7 +6,7 @@ import java.util.function.Consumer;
 
 /**
  * 使用内置函数式接口Consumer<T>
- *
+ * @author qiqi.zhao
  * public interface Consumer<T>{
  *      void accept(T t);
  * }

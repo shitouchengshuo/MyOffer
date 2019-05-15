@@ -1,8 +1,7 @@
-package java8.functionInterface;
+package java8.function;
 
 import com.google.common.collect.Lists;
 import java8.entity.Apple;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Predicate;
@@ -13,6 +12,7 @@ import java.util.function.Predicate;
  * public interface Predicate<T>{
  *      boolean test(T t);
  * }
+ * @author qiqi.zhao
  */
 public class PredicateTest {
 
@@ -36,7 +36,5 @@ public class PredicateTest {
         System.out.println(nonEmpty +"++++"+nonEmpty1);
 
         Predicate<Apple> notRedApple = a ->a.getWeight() > 120;
-
-
     }
 }

@@ -10,20 +10,23 @@ import java.util.List;
 import static java.util.Comparator.comparing;
 
 /**
- * void sort(Comparator<? super E> c);
+ * java8 排序
+ * @author qiqi.zhao
  */
 public class SortTest {
 
-    //被排序的集合
+    /**
+     * 被排序的集合
+     */
+
     public List<User> userList = Lists.newArrayList(new User("Jack",11),new User("Jack",10));
 
     //sort方法签名
     //void sort(Comparator<? super E> c);
-
-    //@Test
     public void test1(){
         //1.Java8之前，使用匿名内部类的基本排序
         Collections.sort(userList,new Comparator<User>(){
+            @Override
             public int compare(User user1, User user2) {
                 return user1.getName().compareTo(user2.getName());
             }
@@ -59,8 +62,10 @@ public class SortTest {
 
         //8.Java8,反转排序
         Comparator<User> comparator = (user1,user2)->user1.getName().compareTo(user2.getName());
-        userList.sort(comparator);//先按name排序
-        userList.sort(comparator.reversed());//反转排序
+        //先按name排序
+        userList.sort(comparator);
+        //反转排序
+        userList.sort(comparator.reversed());
 
         /**
          *Arrays.sort()使用

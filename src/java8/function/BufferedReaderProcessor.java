@@ -1,4 +1,4 @@
-package java8.functionInterface;
+package java8.function;
 
 import java.io.BufferedReader;
 import java.io.IOException;

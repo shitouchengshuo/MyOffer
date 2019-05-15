@@ -1,4 +1,4 @@
-package java8.functionInterface;
+package java8.function;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -6,6 +6,7 @@ import java.io.IOException;
 
 /**
  * 函数式接口
+ * @author qiqi.zhao
  */
 public class FunctionInterface {
 

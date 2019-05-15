@@ -33,7 +33,7 @@ package qiqi.sort;
  */
 public class RadixSort {
     private static void radixSort(int[] array, int d){
-        int n = 1;//代表位数对应的数：1,10,100...
+        int n = 1;// n=1对应个位  n=10对应十位
         int k = 0;//保存每一位排序后的结果用于下一位的排序输入
         int length = array.length;
         int[][] bucket = new int[10][length];//排序桶用于保存每次排序后的结果，这一位上排序结果相同的数字放在同一个桶里,10为基数

@@ -1,4 +1,4 @@
-package java8.functionInterface;
+package java8.function;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -12,6 +12,7 @@ import java.util.function.Function;
  * public interface Function<T, R>{
  *      R apply(T t);
  * }
+ * @author qiqi.zhao
  */
 public class FunctionTest {
 

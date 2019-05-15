@@ -55,9 +55,9 @@ public class PassCode {
 
     public static void main(String[] args) {
 
-        List<Apple> inventory = Lists.newArrayList(new Apple(100,"green"),new Apple(200, "red"));
-        System.out.println(filterApples(inventory,Apple::isGreenApple));
-        System.out.println(filterApples(inventory, (Apple a) -> "green".equals(a.getColor())));
+        List<Apple> apples = Lists.newArrayList(new Apple(100,"green"),new Apple(200, "red"));
+        System.out.println(filterApples(apples,Apple::isGreenApple));
+        System.out.println(filterApples(apples, (Apple a) -> "green".equals(a.getColor())));
 
     }
 

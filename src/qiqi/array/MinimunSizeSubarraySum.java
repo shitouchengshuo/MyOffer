@@ -3,22 +3,26 @@ package qiqi.array;
 /**
  * 给定一个整型数组和一个数字s，找到数组中最短的一个连续子数组，使得连续子数组的数字和sum>=s
  * 返回这个最短的连续子数组的长度
+ * @author
  */
 public class MinimunSizeSubarraySum {
 
-    //暴力法 O(n^3)
-    public static int method1(int[] arr, int s){
+    /**
+     * 暴力法 O(n^3)
+     * @return
+     */
+    public static int method1(int[] arr, int target){
         if (arr == null || arr.length <= 0){
             return 0;
         }
         int result = arr.length + 1;
         for (int left = 0; left < arr.length; left++){
-            for (int rirht = left; rirht < arr.length; rirht++){
+            for (int right = left; right < arr.length; right++){
                 int sum = 0;
-                for (int i = left; i <= rirht; i++){
+                for (int i = left; i <= right; i++){
                     sum += arr[i];
-                    if (sum >= s){
-                        result = rirht - left + 1 < result ? rirht - left + 1 : result;
+                    if (sum >= target){
+                        result = right - left + 1 < result ? right - left + 1 : result;
                     }
                 }
             }
@@ -29,7 +33,10 @@ public class MinimunSizeSubarraySum {
         return result;
     }
 
-    //双指针法 O(n)(滑动窗口)
+    /**
+     * 双指针法 O(n)(滑动窗口)
+     * @return
+     */
     public static int method2(int[] arr, int s){
         if (arr == null || arr.length <= 0){
             return 0;
@@ -37,7 +44,8 @@ public class MinimunSizeSubarraySum {
         int result = arr.length + 1;
         int sum = 0;
         int left = 0;
-        int right = -1; //arr[left...right]为滑动窗口
+        //arr[left...right]为滑动窗口
+        int right = -1;
         while ( left < arr.length ){
             if ( sum < s && right + 1 < arr.length ){
                 sum += arr[++right];

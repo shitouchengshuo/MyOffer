@@ -2,6 +2,7 @@ package qiqi.sort;
 
 /**
  * 冒泡排序 稳定排序 平均O(n^2)   最好O(n)	 最坏O(n^2)
+ * @author qiqi.zhao
  */
 public class BubbleSort {
 
@@ -37,14 +38,13 @@ public class BubbleSort {
             return;
         }
         for (int i = 0; i < end - 1; i++){
-            if (array[i] > array[i+1]){
+            if (array[i] > array[i + 1]){
                 int temp = array[i];
-                array[i] = array[i+1];
-                array[i+1] = temp;
+                array[i] = array[i + 1];
+                array[i + 1] = temp;
             }
         }
-        end--;
-        iteratorSort(array, end);
+        iteratorSort(array, --end);
     }
 
     public static void main(String[] args) {
