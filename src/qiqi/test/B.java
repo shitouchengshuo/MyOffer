@@ -2,43 +2,51 @@ package qiqi.test;
 
 public class B  {
 
+    //快速划分
+    public static void byPartition(int[] arr, int k){
+        if (arr == null || arr.length <= 0 || k <= 0 || k > arr.length){
+            return;
+        }
+        int start = 0;
+        int end = arr.length - 1;
+        int index = partion(arr, start, end);
+        while (index != k - 1){
+            if (index < k-1){
+                start = index + 1;
+            }else {
+                end = index - 1;
+            }
+            index = partion(arr, start, end);
+        }
+        for (int i = 0; i < k; i++){
+            System.out.println(arr[i]);
+        }
+    }
 
-    public static int partion(int[] array, int left, int right){
-        int i, j, base;
-        base = array[left];
-        i = left;
-        j = right;
-        while (i < j){
-            while ( array[j] >= base){
+    public static  int partion(int[] arr, int left, int right){
+        int i = left;
+        int j = right;
+        int base = arr[left];
+        while (i != j){
+            while (i < j && arr[j] >= base){
                 j--;
             }
-            while (array[i] <= base){
+            while (i < j && arr[i] <= base){
                 i++;
             }
-            // if (i < j){
-                int temp = array[i];
-                array[i] = array[j];
-                array[j] = temp;
-            // }
+            if (i < j){
+                int temp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = temp;
+            }
         }
-        array[left] = array[i];
-        array[i] = base;
+        arr[left] = arr[i];
+        arr[i] = base;
         return i;
     }
-   public static void sort(int[] array, int left, int right){
-      if (left > right){
-          return;
-      }
-      int p = partion(array, left, right);
-      sort(array, left, p-1);
-      sort(array, p+1,right);
-   }
 
     public static void main(String[] args) {
-        int[] array = new int[]{0,0,1,1,2};
-        sort(array,0, array.length-1);
-        for (int i = 0; i < array.length; i++){
-            System.out.print(array[i]);
-        }
+        int[] arr = new int[]{4,5,1,6,2,7,3,8,9,10,0};
+        byPartition(arr,4);
     }
 }

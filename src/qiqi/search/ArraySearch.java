@@ -13,14 +13,14 @@ public class ArraySearch {
         if (array == null){
             return false;
         }
-        int colum = array[0].length - 1;
+        int column = array[0].length - 1;
         int row = 0;
-        while ( row < array.length && colum > 0){
-            if (array[row][colum] == number){
+        while ( row < array.length && column > 0){
+            if (array[row][column] == number){
                 return true;
             }
-            if (array[row][colum] > number){
-                colum--;
+            if (array[row][column] > number){
+                column--;
             }else {
                 row++;
             }

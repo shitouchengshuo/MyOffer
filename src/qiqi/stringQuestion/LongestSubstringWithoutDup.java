@@ -26,6 +26,7 @@ import java.util.Set;
  * 那么说明这个字符还未出现过，如果 arr[temp] 值不为负数，那么说明这个字符已经出现过，接下来我们要判断这个字符是否在
  * 我们当前统计的最长子字符串中。如果不在当前的子字符串中，那么f( i）=f（ -1）+1；如果在当前的最长子字符串中，
  * 就像上面的第4、5步，我们需要重新计算当前最长子字符串，也就是需要找到上一次出现该字符的位置，然后从它后面一位开始统计。
+ * @author qiqi.zhao
  */
 public class LongestSubstringWithoutDup {
     private static String str = "arabaacfr";
@@ -76,14 +77,16 @@ public class LongestSubstringWithoutDup {
             return 0;
         }
         char[] chars = str.toCharArray();
-        int[] frequence = new int[256];
+        int[] frequences = new int[256];
         int left = 0,right= -1;
         int result = 0;
         while ( left < str.length()){
-            if ( right + 1 < chars.length && frequence[chars[right+1]] == 0){
-                frequence[chars[++right]]++;
+            if ( right + 1 < chars.length && frequences[chars[right+1]] == 0){
+                right++;
+                frequences[chars[right]]++;
             }else {
-                frequence[chars[left++]]--;
+                frequences[chars[left]]--;
+                left++;
             }
             result = right - left + 1 > result ? right - left + 1: result;
         }
@@ -103,10 +106,12 @@ public class LongestSubstringWithoutDup {
             arr[i] = -1;
         }
         for(int i = 0; i < str.length(); i++){
-            if(arr[str.charAt(i) - 'a'] == -1){ //说明当前字符未重复
+            //如果当前字符未重复
+            if(arr[str.charAt(i) - 'a'] == -1){
                 arr[str.charAt(i) - 'a'] = i;
                 count++;
-            }else if(arr[str.charAt(i)- 'a'] != -1){//当前字符重复
+                //如果当前字符重复
+            }else if(arr[str.charAt(i)- 'a'] != -1){
                 //说明当前的字符str.charAt(i)上一次出现的位置在现在统计的子字符串前面，对现在的统计没影响
                 if(i - arr[str.charAt(i) - 'a'] > count){
                     count++;
@@ -127,7 +132,7 @@ public class LongestSubstringWithoutDup {
 
     public static void main(String[] args) {
         // getLongestSubStr0(str);
-        // System.out.println(getLongestSubStr1(str));
+        System.out.println(getLongestSubStr1(str));
         System.out.println(getLongestSubStr2(str));
 
     }

@@ -64,7 +64,7 @@ public class MinimunSizeSubarraySum {
 
     public static void main(String[] args) {
         int[] arr = new int[]{ 2, 3, 1, 2, 4, 3 };
-        System.out.println(method1(arr,17));
-        System.out.println(method2(arr,17));
+        System.out.println(method1(arr,12));
+        System.out.println(method2(arr,12));
     }
 }

@@ -37,7 +37,8 @@ public class Sort012 {
     public static void sort2(int[] nums) {
         int zero = -1;
         int two = nums.length;
-        for (int i = zero + 1; i < two; ){
+        int i = zero + 1;
+        while ( i < two){
             if (nums[i] == 1){
                 i++;
             }else if (nums[i] == 2){

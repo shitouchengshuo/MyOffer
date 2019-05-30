@@ -21,9 +21,12 @@ public class BinarySearch {
         if (array == null || array.length < 1){
             return -1;
         }
-        int left = 0,right = array.length - 1; //在[left ... rigjt]闭区间范围里寻找target
-        while (left <= right){   //当left = right，区间[left ... rigjt]依然有效，有一个值
-            int mid = left + (right - left) / 2; //( left+right)/2  当left与right值很大时，加法容易产生整形溢出
+        //在[left ... right]闭区间范围里寻找target
+        int left = 0, right = array.length - 1;
+        //当left = right，区间[left ... right]依然有效，只有一个值
+        while (left <= right){
+            //( left+right)/2  当left与right值很大时，(left+right)/2这种加法容易产生整形溢出
+            int mid = left + (right - left) / 2;
             if (array[mid] == target){
                 return mid;
             }

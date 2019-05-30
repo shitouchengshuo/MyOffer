@@ -11,8 +11,34 @@ package qiqi.array;
  * 算法是基于递增的性质，如果不是递增则使用hash表来解决。
  */
 public class TwoNumbersWithSum {
+    /**
+     * 暴力解法  O(N^2)
+     * @param arr
+     * @param target
+     * @return
+     */
+    public static boolean findNumbersWithSum0(int[] arr, int target){
+        boolean found = false;
+        if (arr == null || arr.length <= 0){
+            return found;
+        }
+        for (int i = 0; i < arr.length - 1; i++){
+            int sum = 0;
+            for (int j = i + 1; j < arr.length; j++){
+                sum = arr[i] + arr[j];
+                if (sum == target){
+                    found = true;
+                    System.out.println("  " + arr[i] + "  "+arr[j]);
+                    return found;
+                }
+            }
+        }
+        return found;
+    }
 
-    public static boolean findNumbersWithSum(int[] arr, int sum){
+
+
+    public static boolean findNumbersWithSum(int[] arr, int target){
         boolean found = false;
         if (arr == null || arr.length <= 0){
             return found;
@@ -20,11 +46,11 @@ public class TwoNumbersWithSum {
         int start = 0;
         int end = arr.length - 1;
         while (start < end){
-            long curSum = arr[start] + arr[end];
-            if (curSum == sum){
+            long sum = arr[start] + arr[end];
+            if (sum == target){
                 found = true;
                 break;
-            }else if (curSum > sum){
+            }else if (sum > target){
                 end--;
             }else {
                 start++;
@@ -35,6 +61,6 @@ public class TwoNumbersWithSum {
 
     public static void main(String[] args) {
         int[] arr = new int[]{1, 2, 4, 7, 11, 15};
-        System.out.println(findNumbersWithSum(arr, 6));
+        System.out.println(findNumbersWithSum0(arr, 6));
     }
 }
