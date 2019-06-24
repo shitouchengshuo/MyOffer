@@ -1,4 +1,7 @@
-package qiqi.array;
+package qiqi.array.LookUpTable;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * 题目：
@@ -10,7 +13,7 @@ package qiqi.array;
  * 如果二者的和小于目标和，小指针向前移动；如果二者的和大于目标和，则大指针向后移动。
  * 算法是基于递增的性质，如果不是递增则使用hash表来解决。
  */
-public class TwoNumbersWithSum {
+public class TwoSum {
     /**
      * 暴力解法  O(N^2)
      * @param arr
@@ -36,8 +39,12 @@ public class TwoNumbersWithSum {
         return found;
     }
 
-
-
+    /**
+     * 对撞指针法
+     * @param arr
+     * @param target
+     * @return
+     */
     public static boolean findNumbersWithSum(int[] arr, int target){
         boolean found = false;
         if (arr == null || arr.length <= 0){
@@ -59,8 +66,30 @@ public class TwoNumbersWithSum {
         return found;
     }
 
+    /**
+     * 给定无序数组  O(N)
+     * 查找表法，将所有的元素放入查找表，之后对于每一个元素a，查找target-a是否存在
+     */
+    public static int[] findNumbersWithSum1(int[] array, int target){
+        if (array == null || array.length <= 0){
+            return null;
+        }
+        Map<Integer, Integer> map = new HashMap<>();
+        for (int i = 0; i< array.length; i++){
+            if (!map.containsKey(target - array[i])){
+                map.put(array[i], i);
+            }else {
+                return new int[]{i, map.get(target - array[i])};
+            }
+        }
+        return null;
+    }
+
     public static void main(String[] args) {
         int[] arr = new int[]{1, 2, 4, 7, 11, 15};
-        System.out.println(findNumbersWithSum0(arr, 6));
+        int[] numbersWithSum1 = findNumbersWithSum1(arr, 6);
+        for (int a : numbersWithSum1){
+            System.out.println(a);
+        }
     }
 }

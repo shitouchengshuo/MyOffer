@@ -1,9 +1,10 @@
 package qiqi.array;
 
 /**
- * O(1)空间复杂度，删除数组中的重复元素，并返回数组长度.
- *
+ * 有一个序数组，含有重复元素，
+ * 请使用O(1)空间复杂度，删除数组中的重复元素，并返回数组长度.
  * 例如 0011122334 ---> 01234 返回5
+ * @author qiqi.zhao
  */
 public class RemoveDuplicatesFromSortedArray {
 
@@ -23,7 +24,8 @@ public class RemoveDuplicatesFromSortedArray {
                 nums[k++] = nums[i];
             }
         }
-        if (!flog){//数组中的值均相等
+        //数组中的值均相等
+        if (!flog){
             nums[k++] = nums[1];
         }else{
             nums[k++] = nums[nums.length -1];

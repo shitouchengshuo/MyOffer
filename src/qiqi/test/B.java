@@ -1,52 +1,40 @@
 package qiqi.test;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class B  {
+    private static String str = "arabaacfr";
 
-    //快速划分
-    public static void byPartition(int[] arr, int k){
-        if (arr == null || arr.length <= 0 || k <= 0 || k > arr.length){
-            return;
+    /**
+     * 滑动窗口法  O(n)
+     */
+    public static int getLongestSubStr1(String str){
+        if (str == null){
+            return 0;
         }
-        int start = 0;
-        int end = arr.length - 1;
-        int index = partion(arr, start, end);
-        while (index != k - 1){
-            if (index < k-1){
-                start = index + 1;
+        int result = 0;
+        char[] frequences = new char[256];
+        char[] chars = str.toCharArray();
+        int left = 0;
+        int right = -1;
+        while ( left < chars.length){
+            if (right + 1 < chars.length && frequences[chars[right+1]] == 0){
+                right++;
+                frequences[chars[right]]++;
             }else {
-                end = index - 1;
+                frequences[chars[left]]--;
+                left++;
             }
-            index = partion(arr, start, end);
+            result = right -left + 1 > result ? right - left + 1 : result;
         }
-        for (int i = 0; i < k; i++){
-            System.out.println(arr[i]);
-        }
-    }
-
-    public static  int partion(int[] arr, int left, int right){
-        int i = left;
-        int j = right;
-        int base = arr[left];
-        while (i != j){
-            while (i < j && arr[j] >= base){
-                j--;
-            }
-            while (i < j && arr[i] <= base){
-                i++;
-            }
-            if (i < j){
-                int temp = arr[i];
-                arr[i] = arr[j];
-                arr[j] = temp;
-            }
-        }
-        arr[left] = arr[i];
-        arr[i] = base;
-        return i;
+       return result;
     }
 
     public static void main(String[] args) {
-        int[] arr = new int[]{4,5,1,6,2,7,3,8,9,10,0};
-        byPartition(arr,4);
+        // getLongestSubStr0(str);
+        // System.out.println(getLongestSubStr1(str));
+        String str = "0104081198d11668f9c31d15304ea5c7a20a952a4a42d6402e61ced4fb63eeb3";
+        System.out.println(str.length());
     }
 }

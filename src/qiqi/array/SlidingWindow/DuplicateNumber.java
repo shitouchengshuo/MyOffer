@@ -1,4 +1,4 @@
-package qiqi.array;
+package qiqi.array.SlidingWindow;
 
 import java.util.HashSet;
 /**
@@ -27,8 +27,9 @@ import java.util.HashSet;
  * 下标为1，2，3的三个数字分别为1，2，3，他们的下标和数值都分别相等，因此不需要做任何操作。接下来扫描下标为4的数字2。
  * 由于它的值与它的下标不登，再比较它和下标为2的数字。注意到此时数组中下标为2的数字也是2，也就是数字2和下标为2和下标4的两个位置了，
  * 因此找到一个重复的数字。
+ * @author
  */
-public class RepetitiveNumber {
+public class DuplicateNumber {
 
     public static int duplicate ( int[] numbers){
         if (numbers == null || numbers.length < 1) {

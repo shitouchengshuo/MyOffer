@@ -1,4 +1,4 @@
-package qiqi.array;
+package qiqi.array.SlidingWindow;
 
 /**
  * 给定一个整型数组和一个数字s，找到数组中最短的一个连续子数组，使得连续子数组的数字和sum>=s
