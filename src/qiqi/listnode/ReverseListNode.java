@@ -1,4 +1,4 @@
-package qiqi.listNode;
+package qiqi.listnode;
 
 /**
  * 反转链表
@@ -6,7 +6,7 @@ package qiqi.listNode;
  * 反转：null <- 1 <- 2 <- 3 <- 4 <- 5
  * @author
  */
-public class ReverseList {
+public class ReverseListNode {
 
     public static ListNode reverse(ListNode head){
         //少于两个节点没有反转的必要

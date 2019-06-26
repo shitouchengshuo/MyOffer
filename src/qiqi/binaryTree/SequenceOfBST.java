@@ -18,13 +18,13 @@ public class SequenceOfBST {
         //二叉搜索树的根节点是后序遍历的最后一个值
         int root = sequence[length - 1];
         int i = 0;
-        // 在二叉搜索树中左子树的结点小于根结点
+        // 在二叉搜索树中左子树的节点小于根节点
         for (; i < length-1; i++){
             if (sequence[i] > root){
                 break;
             }
         }
-        // 在二叉搜索树中右子树的结点大于根结点
+        // 在二叉搜索树中右子树的节点大于根节点
         for (int j = i; j < length-1; j++){
             //若右子树中有节点小于根节点，直接返回false
             if (sequence[j] < root){

@@ -1,4 +1,4 @@
-package qiqi.listNode;
+package qiqi.listnode;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -44,7 +44,7 @@ public class EntryNodeInListLoop {
             preNode = preNode.next;
             postNode = postNode.next.next;
         }
-        // 将其中一个指针指向头结点
+        // 将其中一个指针指向头节点
         postNode = pHead;
         // 步长都为1，同时往后走，直到两者相遇
         // 相遇点就是入口

@@ -5,7 +5,7 @@ import java.util.Stack;
 
 /**
  * 用两个栈实现一个队列，实现队列的两个函数appendTail()和deleteHead,
- * 分别完成在队尾插入节点和在队列头部删除结点的功能。
+ * 分别完成在队尾插入节点和在队列头部删除节点的功能。
  */
 public class ImplyQueneByStack<T> {
 

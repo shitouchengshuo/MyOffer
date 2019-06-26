@@ -1,11 +1,12 @@
-package qiqi.listNode;
+package qiqi.listnode;
 
 import java.util.Stack;
 
 /**
- * 输入一个链表的头结点，从尾到头反过来打印出每个节点的值
+ * 输入一个链表的头节点，从尾到头反过来打印出每个节点的值
+ * @author
  */
-public class PrintListInReversedOrder {
+public class ReversedListNodeValue {
 
     public static void reverseList(ListNode headNode){
         Stack stack = new Stack<ListNode>();

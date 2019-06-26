@@ -1,4 +1,4 @@
-package qiqi.listNode;
+package qiqi.listnode;
 
 public class CopyComplexList {
     static class Node {
@@ -57,24 +57,24 @@ public class CopyComplexList {
             if (head == null) {
                 return null;
             }
-            // 用于记录复制链表的头结点
+            // 用于记录复制链表的头节点
             Node copyHead = head.next;
-            // 用于记录当前处理的复制结点
+            // 用于记录当前处理的复制节点
             Node copyNode = copyHead;
-            // 被复制结点的next指向下一个被复制结点
+            // 被复制节点的next指向下一个被复制节点
             head.next = copyHead.next;
-            // 指向新的被复制结点
+            // 指向新的被复制节点
             head = head.next;
             while (head != null) {
-                // pointer指向复制结点
+                // pointer指向复制节点
                 copyNode.next = head.next;
                 copyNode = copyNode.next;
-                // head的下一个指向复制结点的下一个结点，即原来链表的结点
+                // head的下一个指向复制节点的下一个节点，即原来链表的节点
                 head.next = copyNode.next;
-                // head指向下一个原来链表上的结点
+                // head指向下一个原来链表上的节点
                 head = copyNode.next;
             }
-            // 返回复制链表的头结点
+            // 返回复制链表的头节点
             return copyHead;
 
     }
