@@ -1,40 +1,45 @@
 package qiqi.test;
 
-import java.util.HashSet;
-import java.util.Set;
+import qiqi.listnode.ListNode;
 
 public class B  {
-    private static String str = "arabaacfr";
+    /**
+     * 删除一个节点 O(N)
+     * @param head
+     * @param toBeDeleted
+     * @return
+     */
+    public static ListNode deleteNode1(ListNode head, ListNode toBeDeleted) {
+        if (head == null || toBeDeleted == null){
+            return null;
+        }
+        if (head == toBeDeleted){
+            return head.next;
+        }
+        ListNode curNode = head;
+        while ( curNode.next != null ){
+            if (curNode.next.value == toBeDeleted.value){
+                curNode.next = curNode.next.next;
+            }else {
+                curNode = curNode.next;
+            }
+        }
+        return head;
+    }
 
     /**
-     * 滑动窗口法  O(n)
+     * O(1)
+     * @param head        链表表的头
+     * @param toBeDeleted 待删除的节点
+     * @return 删除后的头节点
      */
-    public static int getLongestSubStr1(String str){
-        if (str == null){
-            return 0;
-        }
-        int result = 0;
-        char[] frequences = new char[256];
-        char[] chars = str.toCharArray();
-        int left = 0;
-        int right = -1;
-        while ( left < chars.length){
-            if (right + 1 < chars.length && frequences[chars[right+1]] == 0){
-                right++;
-                frequences[chars[right]]++;
-            }else {
-                frequences[chars[left]]--;
-                left++;
-            }
-            result = right -left + 1 > result ? right - left + 1 : result;
-        }
-       return result;
+    public static ListNode deleteNode2(ListNode head, ListNode toBeDeleted) {
+        return null;
     }
 
     public static void main(String[] args) {
-        // getLongestSubStr0(str);
-        // System.out.println(getLongestSubStr1(str));
-        String str = "0104081198d11668f9c31d15304ea5c7a20a952a4a42d6402e61ced4fb63eeb3";
-        System.out.println(str.length());
+        ListNode listNode = ListNode.createListNode(new int[]{1, 2, 3, 4, 5, 6});
+        ListNode.printListNode(deleteNode1(listNode, new ListNode(6)));
+
     }
 }

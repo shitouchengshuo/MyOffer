@@ -5,14 +5,14 @@ package qiqi.listnode;
  */
 public class ListNode {
 
-    int value;
+    public int value;
 
-    ListNode next;
+    public ListNode next;
 
     public ListNode() {
     }
 
-    ListNode(int x){
+    public ListNode(int x){
         value = x;
     }
 

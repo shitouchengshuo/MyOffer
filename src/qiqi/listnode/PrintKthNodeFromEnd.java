@@ -5,8 +5,9 @@ package qiqi.listnode;
  * 为了符合大多数人的习惯，本题从1开始计数，即链表的尾节点是倒数第1个节点。
  * 例如一个链表有6个节点，从头节点开始它们的值依次是1、2、3、4、5、6。
  * 这个链表的倒数第3个节点是值为4的节点。
+ * @author
  */
-public class KthNodeFromEnd {
+public class PrintKthNodeFromEnd {
 
     /**
      * 由于不知道链表的长度，先遍历一遍链表获取链表长度，再遍历一遍删除倒数第n个节点

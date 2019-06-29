@@ -1,14 +1,14 @@
 package qiqi.listnode;
 
 /**
- * 删除链表的节点
+ * 删除链表的节点,并返回新链表的头节点
  * @author qiqi.zhao
  * @date 2019.6.25
  */
 public class DeleteNode {
 
     /**
-     * 删除一个节点
+     * 删除一个节点 O(N)
      * @param head
      * @param toBeDeleted
      * @return
@@ -26,8 +26,7 @@ public class DeleteNode {
         while ( curNode.next != null){
             if (curNode.next.value == toBeDeleted.value){
                 //删除节点
-                ListNode delNode = curNode.next;
-                curNode.next = delNode.next;
+                curNode.next = curNode.next.next;
             }else {
                 curNode = curNode.next;
             }
@@ -61,13 +60,11 @@ public class DeleteNode {
             // 删除待节点
             tmp.next = null;
         } else {
-            // 在多个节点的情况下，如果删除的是某个中间节点
-            // 将下一个节点的值输入当前待删除的节点
+            // 在多个节点的情况下，如果删除的是某个中间节点，将下一个节点的值输入当前待删除的节点
             toBeDeleted.value = toBeDeleted.next.value;
             // 待删除的节点的下一个指向原先待删除引号的下下个节点，即将待删除的下一个节点删除
             toBeDeleted.next = toBeDeleted.next.next;
         }
-
         // 返回删除节点后的链表头节点
         return head;
     }
