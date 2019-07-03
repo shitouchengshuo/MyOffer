@@ -1,4 +1,4 @@
-package qiqi.binaryTree;
+package qiqi.binarytree;
 
 /**
  * 题目描述：给定一颗二叉搜索树，请找出其中的第k大的节点。
@@ -44,25 +44,5 @@ public class KthNodeInBST {
         return target;
     }
 
-    private static void assemble(BinaryTreeNode node, BinaryTreeNode left,
-                                 BinaryTreeNode right, BinaryTreeNode parent) {
-        node.leftNode = left;
-        node.rightNode = right;
-        node.parentNode = parent;
-    }
 
-    public static void main(String[] args) {
-        BinaryTreeNode n1 = new BinaryTreeNode(5);
-        BinaryTreeNode n2 = new BinaryTreeNode(3);
-        BinaryTreeNode n3 = new BinaryTreeNode(7);
-        BinaryTreeNode n4 = new BinaryTreeNode(2);
-        BinaryTreeNode n5 = new BinaryTreeNode(4);
-        BinaryTreeNode n6 = new BinaryTreeNode(6);
-        BinaryTreeNode n7 = new BinaryTreeNode(8);
-
-        assemble(n1, n2, n3, null);
-        assemble(n2, n4, n5, n1);
-        assemble(n3, n6, n7, n1);
-        System.out.println(kthNodeInBST(n1,6).value);
-    }
 }

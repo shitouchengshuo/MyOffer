@@ -36,6 +36,12 @@ public class PrintKthNodeFromEnd {
         return null;
     }
 
+    /**
+     * 只遍历一遍链表，双指针
+     * @param head
+     * @param k
+     * @return
+     */
     public static ListNode kthNodeFromEnd2(ListNode head, int k){
         if (head == null || k < 0){
             return null;
@@ -43,7 +49,7 @@ public class PrintKthNodeFromEnd {
         ListNode ahead = head;
         ListNode bhead = head;
         for (int i = 0; i < k - 1; i++){
-            if (ahead != null){
+            if (ahead.next != null){
                 ahead = ahead.next;
             }else {
                 return null;
@@ -58,7 +64,7 @@ public class PrintKthNodeFromEnd {
 
     public static void main(String[] args) {
         ListNode node1 = ListNode.createListNode(new int[]{1, 2, 3, 4, 5, 6});
-        ListNode node = kthNodeFromEnd1(node1, 6);
+        ListNode node = kthNodeFromEnd2(node1, 2);
         System.out.println(node.value);
     }
 }

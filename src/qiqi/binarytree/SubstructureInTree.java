@@ -1,4 +1,4 @@
-package qiqi.binaryTree;
+package qiqi.binarytree;
 
 public class SubstructureInTree {
     /**
@@ -48,25 +48,5 @@ public class SubstructureInTree {
             return false;
         }
     }
-    public static void main(String[] args) {
-        BinaryTreeNode root1 = new BinaryTreeNode(8);
-        root1.rightNode = new BinaryTreeNode(7);
-        root1.leftNode = new BinaryTreeNode(8);
-        root1.leftNode.leftNode = new BinaryTreeNode(9);
-        root1.leftNode.rightNode = new BinaryTreeNode(2);
-        root1.leftNode.rightNode.leftNode = new BinaryTreeNode(4);
-        root1.leftNode.rightNode.rightNode = new BinaryTreeNode(7);
 
-        BinaryTreeNode root2 = new BinaryTreeNode(8);
-        root2.leftNode = new BinaryTreeNode(9);
-        root2.rightNode = new BinaryTreeNode(2);
-
-        System.out.println(hasSubTree(root1, root2));
-        System.out.println(hasSubTree(root2, root1));
-        System.out.println(hasSubTree(root1, root1.leftNode));
-        System.out.println(hasSubTree(root1, null));
-        System.out.println(hasSubTree(null, root2));
-        System.out.println(hasSubTree(null, null));
-
-    }
 }

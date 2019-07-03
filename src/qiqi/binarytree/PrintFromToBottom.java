@@ -1,12 +1,15 @@
-package qiqi.binaryTree;
+package qiqi.binarytree;
 
 import java.util.LinkedList;
 import java.util.Queue;
 
+/**
+ * 从上到下分层打印二叉树
+ * @author
+ */
 public class PrintFromToBottom {
 
     public static void print(BinaryTreeNode root) {
-
         if (root == null){
             return;
         }
@@ -31,14 +34,8 @@ public class PrintFromToBottom {
         //   6     10
         //  / \   / \
         // 5   7 9  11
-        BinaryTreeNode root = new BinaryTreeNode(8);
-        root.leftNode = new BinaryTreeNode(6);
-        root.leftNode.leftNode = new BinaryTreeNode(5);
-        root.leftNode.rightNode = new BinaryTreeNode(7);
-        root.rightNode = new BinaryTreeNode(10);
-        root.rightNode.leftNode = new BinaryTreeNode(9);
-        root.rightNode.rightNode = new BinaryTreeNode(11);
-        print(root);
-
+        BinaryTreeNode node = BinaryTreeUtil.createBinaryTree(new int[]{8, 6, 10, 5, 7, 9, 11});
+        BinaryTreeUtil.inOrder(node);
+        print(node);
     }
 }

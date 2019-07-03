@@ -1,4 +1,4 @@
-package qiqi.binaryTree;
+package qiqi.binarytree;
 
 import java.util.Arrays;
 

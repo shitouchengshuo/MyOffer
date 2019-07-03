@@ -1,4 +1,4 @@
-package qiqi.binaryTree;
+package qiqi.binarytree;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -37,14 +37,5 @@ public class PathInTree {
         pathList.remove(pathList.size()-1);
     }
 
-    public static void main(String[] args) {
-        BinaryTreeNode node10 = new BinaryTreeNode(10);
-        BinaryTreeNode node5 = new BinaryTreeNode(5);
-        BinaryTreeNode node12 = new BinaryTreeNode(12);
-        BinaryTreeNode node4 = new BinaryTreeNode(4);
-        BinaryTreeNode node7 = new BinaryTreeNode(7);
-        BinaryTreeUtils.assemble(node10, node5, node12, null);
-        BinaryTreeUtils.assemble(node5, node4, node7, node10);
-        findPath(node10, 22);
-    }
+
 }
