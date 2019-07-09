@@ -4,7 +4,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 /**
- * 从上到下分层打印二叉树
+ * 从上到下分层打印二叉树,广度优先遍历
  * @author
  */
 public class PrintFromToBottom {
@@ -13,16 +13,34 @@ public class PrintFromToBottom {
         if (root == null){
             return;
         }
-        Queue<BinaryTreeNode> list = new LinkedList<>();
-        list.add(root);
-        while (!list.isEmpty()){
-            BinaryTreeNode curNode =list.remove();
+        Queue<BinaryTreeNode> queue = new LinkedList<>();
+        queue.add(root);
+        while (!queue.isEmpty()){
+            BinaryTreeNode curNode =queue.remove();
             System.out.print(curNode.value + " ");
             if (curNode.leftNode != null){
-                 list.add(curNode.leftNode);
+                queue.add(curNode.leftNode);
             }
             if (curNode.rightNode != null){
-                 list.add(curNode.rightNode);
+                queue.add(curNode.rightNode);
+            }
+        }
+    }
+
+    public static void print1(BinaryTreeNode root) {
+        if (root == null){
+            return;
+        }
+        Queue<BinaryTreeNode> queue = new LinkedList<>();
+        queue.add(root);
+        while (queue.size() >0){
+            BinaryTreeNode node = queue.remove();
+            System.out.print(node.value + " ");
+            if (node.leftNode != null){
+                queue.add(node.leftNode);
+            }
+            if (node.rightNode != null){
+                queue.add(node.rightNode);
             }
         }
     }
@@ -36,6 +54,6 @@ public class PrintFromToBottom {
         // 5   7 9  11
         BinaryTreeNode node = BinaryTreeUtil.createBinaryTree(new int[]{8, 6, 10, 5, 7, 9, 11});
         BinaryTreeUtil.inOrder(node);
-        print(node);
+        print1(node);
     }
 }

@@ -24,7 +24,9 @@ public class KLeastNumbers {
         }
     }
 
-    //快速划分
+    /**
+     * 快速划分
+     */
     public static void byPartition(int[] arr, int k){
         if (arr == null || arr.length <= 0 || k <= 0 || k > arr.length){
             return;
@@ -46,7 +48,13 @@ public class KLeastNumbers {
         }
     }
 
-    //划分方法
+    /**
+     * 划分方法
+     * @param array
+     * @param left
+     * @param right
+     * @return
+     */
     private static int partition(int[] array, int left, int right) {
         int i,j,base,temp;
         //基准数

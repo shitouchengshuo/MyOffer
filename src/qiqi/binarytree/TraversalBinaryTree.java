@@ -13,11 +13,14 @@ public class TraversalBinaryTree {
      * @param root
      */
     public static void preOrder(BinaryTreeNode root){
-        if (root != null){
-            System.out.print(root.value +" ");
-            preOrder(root.leftNode);
-            preOrder(root.rightNode);
+        //递归终止条件
+        if (root == null){
+            return;
         }
+        System.out.print(root.value +" ");
+        preOrder(root.leftNode);
+        preOrder(root.rightNode);
+
     }
 
     /**

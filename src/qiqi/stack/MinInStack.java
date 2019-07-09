@@ -4,11 +4,17 @@ import java.util.Stack;
 
 /**
  * 设计一个栈，使得PUSH、POP以及GetMin（获取栈中最小元素）能够在常数时间内完成。
+ * @author qiqi.zhao
  */
 public class MinInStack {
-    // 数据栈，用于存放插入的数据
+    /**
+     * 数据栈，用于存放插入的数据
+     */
     private Stack<Integer> dataStack;
-    // 最小数位置栈，存放数据栈中最小的数的位置
+
+    /**
+     * 最小数位置栈，存放数据栈中最小的数的位置
+     */
     private Stack<Integer> minStack;
 
     public MinInStack() {

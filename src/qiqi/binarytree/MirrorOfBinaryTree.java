@@ -1,21 +1,24 @@
 package qiqi.binarytree;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * 二叉树的镜像
+ * @author
+ *          8
+ *       /    \
+ *      6     10
+ *     / \   / \
+ *    5   7 9  11
+ *
+ *         8
+ *       /    \
+ *      10    6
+ *     / \   / \
+ *   11  9 7   5
  */
-//       8
-//    /    \
-//   6     10
-//  / \   / \
-// 5   7 9  11
-
-//       8
-//    /    \
-//   10    6
-//  / \   / \
-// 11  9 7   5
 public class MirrorOfBinaryTree {
-
 
     public static void mirrorOfBinaryTree(BinaryTreeNode rootTreeNode){
         if (rootTreeNode == null){
@@ -35,5 +38,10 @@ public class MirrorOfBinaryTree {
         }
     }
 
+    public static void main(String[] args) {
+        Map<String,Boolean> map = new HashMap<>();
+        // map.put("11",true);
+        System.out.println(map.get("11"));
 
+    }
 }

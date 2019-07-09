@@ -9,6 +9,7 @@ package qiqi.binarytree;
  *     3     7
  *    / \   / \
  *   2  4  6   8
+ * @author 
  */
 public class TreeDepth {
 
