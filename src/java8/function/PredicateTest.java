@@ -36,5 +36,6 @@ public class PredicateTest {
         System.out.println(nonEmpty +"++++"+nonEmpty1);
 
         Predicate<Apple> notRedApple = a ->a.getWeight() > 120;
+        nonEmpty1.stream().filter( a->listOfStrings.contains(a)).sorted();
     }
 }

@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * 二叉树的镜像
+ * 反转二叉树，二叉树的镜像
  * @author
  *          8
  *       /    \

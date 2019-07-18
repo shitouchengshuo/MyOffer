@@ -1,5 +1,7 @@
 package qiqi.binarytree;
 
+import java.util.List;
+
 /**
  * 题目一：输入一棵二叉树的根节点，求该树的深度。
  * 从根节点到叶子点依次经过的节点（含根、叶节点）形成树的一条路径，
@@ -9,17 +11,30 @@ package qiqi.binarytree;
  *     3     7
  *    / \   / \
  *   2  4  6   8
- * @author 
+ * @author
  */
 public class TreeDepth {
 
     public static int treeDepth(BinaryTreeNode node){
+        //递归的终止条件
        if (node == null){
            return 0;
        }
+       //递归过程，先定义清除方法的目的，再想递归过程
+       // 获取左子树的深度
        int left = treeDepth(node.leftNode);
+       //获取右子树的深度
        int right = treeDepth(node.rightNode);
+       //比较
        return left> right ? (left + 1) :(right + 1);
+    }
+
+    public static void main(String[] args) {
+        BinaryTreeNode binaryTree = BinaryTreeUtil.createBinaryTree(new int[]{5,6,7,8,9,10,11,12});
+        int depth = treeDepth(binaryTree);
+        System.out.println("depth: " + depth);
+        List<String> list= null;
+        list.stream().sorted();
     }
 
 }
