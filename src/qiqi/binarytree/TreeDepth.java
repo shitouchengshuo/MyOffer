@@ -20,7 +20,7 @@ public class TreeDepth {
        if (node == null){
            return 0;
        }
-       //递归过程，先定义清除方法的目的，再想递归过程
+       //递归过程，先定义清楚方法的目的，再想递归过程
        // 获取左子树的深度
        int left = treeDepth(node.leftNode);
        //获取右子树的深度
