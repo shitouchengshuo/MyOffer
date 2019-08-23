@@ -34,7 +34,7 @@ public class MinInStack {
             return false;
         }
         //如果原始栈栈顶元素与minStack栈顶元素相同，则将该元素也从minStack中pop出去
-        if (dataStack.peek() == minStack.peek()){
+        if (dataStack.peek().equals(minStack.peek())){
             minStack.pop();
         }
         dataStack.pop();

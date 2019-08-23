@@ -1,8 +1,5 @@
 package qiqi.binarytree;
 
-import java.util.LinkedList;
-import java.util.List;
-
 /**
  * 给出一棵二叉树以及一个数字sum,判断在这棵二叉树上是否存在一条从根到叶子的路径，其路径上所有的节点和为sum
  * @author

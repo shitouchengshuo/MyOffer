@@ -8,7 +8,7 @@ package qiqi.binarytree;
  *     / \   / \               / \   / \
  *    5   7 9  11             11  9 7   5
  *
- *   @author qiqi.zhao
+ * @author qiqi.zhao
  */
 public class InvertBinaryTree {
 

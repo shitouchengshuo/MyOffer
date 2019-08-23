@@ -25,7 +25,7 @@ public class FunctionTest {
     public static void main(String[] args) {
         //s.length()是Function接口的apply方法的实现
         List<Integer> list = map(Arrays.asList("lambdas", "in", "action"), (String s) -> s.length());
-
+        System.out.println(list);
 
         List<Integer> someNumbers = Arrays.asList(1, 2, 3, 4, 5);
         Optional<Integer> firstSquareDivisibleByThree =
@@ -34,6 +34,6 @@ public class FunctionTest {
                         .filter(x -> x % 3 == 0)
                         .findFirst();
         System.out.println(firstSquareDivisibleByThree);
-
+        System.out.println(new Date());
     }
 }

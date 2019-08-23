@@ -1,6 +1,7 @@
 package qiqi.listnode;
 
 /**
+ * 定义：单向链表
  * @author
  */
 public class ListNode {
@@ -14,6 +15,11 @@ public class ListNode {
 
     public ListNode(int x){
         value = x;
+    }
+
+    public ListNode(int value, ListNode next) {
+        this.value = value;
+        this.next = next;
     }
 
     public static ListNode createListNode(int[] array){

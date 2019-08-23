@@ -2,17 +2,20 @@ package qiqi.sort;
 
 /**
  * 堆排序：不稳定排序  最好、最坏、平均: O(nlogn)
+ * 堆： 1：必须是一个完全二叉树  2：父节点大于左右子节点
  * @author qiqi.zhao
  */
 public class HeapSort {
 
     private static void heapSort(int[] arr) {
+        //len也就是最后一个节点
         int len = arr.length - 1;
         //i指向子树的根节点
         for( int i = len / 2; i >= 0; i-- ){
             //构造堆
             heapAdjust(arr, i, len);
         }
+        //排序
         while( len >= 0 ){
             //先使用后自减，将堆顶元素与尾节点交换后，长度减1，尾元素最大
             swap(arr,0, len--);
@@ -30,7 +33,7 @@ public class HeapSort {
             //j指针指向左节点
             j = left;
             //如果右节点大于左节点，下一个if语句比较arr[i]（父节点）与右节点
-            //这里j<len是在堆顶元素与尾节点交换后，不再让尾节点参与交换，以此来保留排好序的最大值
+            //这里j<len防止左右子节点超出范围，若left = len,那么右节点越界
             if( j < len && arr[left] < arr[right]) {
                 //当前把指针指向右节点
                 j = right;
@@ -55,7 +58,7 @@ public class HeapSort {
         arr[len] = temp;
     }
     public static void main(String[] args) {
-        // int[] array = {4,10,3,5,1};
+        // int[] array = {4,10,3,5,1,2};
         int[] array = {4,4,3,4,1,0,12,10};
         System.out.println("排序之前：");
         for(int element : array){
