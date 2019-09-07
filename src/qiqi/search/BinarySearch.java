@@ -1,6 +1,7 @@
 package qiqi.search;
 
 /**
+ * 二分查找法
  *  O(logn)
  *  在 n 个元素中找
  *  在 n/2 个元素中找
@@ -8,11 +9,11 @@ package qiqi.search;
  *  在 n/8 个元素中找
  *  ...
  *  在 1 个元素中找
- *
+ * @author
  */
 public class BinarySearch {
 
-    private  static int[] arrayTest = new int[]{1,3,4,8,10,12,17,33};
+    private  static int[] arrays = new int[]{1,3,4,8,10,12,17,33};
 
     /**
      * 非递归
@@ -61,8 +62,8 @@ public class BinarySearch {
     }
 
     public static void main(String[] args) {
-        System.out.println(binarySearch(arrayTest, 33));
-        System.out.println(binarySearch1(arrayTest, 0,arrayTest.length - 1, 33));
+        System.out.println(binarySearch(arrays, 33));
+        System.out.println(binarySearch1(arrays, 0,arrays.length - 1, 33));
     }
 
 }

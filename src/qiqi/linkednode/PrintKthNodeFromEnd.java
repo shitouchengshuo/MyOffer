@@ -1,4 +1,4 @@
-package qiqi.listnode;
+package qiqi.linkednode;
 
 /**
  * 输入一个链表，输出该链表中倒数第k个节点。
@@ -12,12 +12,12 @@ public class PrintKthNodeFromEnd {
     /**
      * 由于不知道链表的长度，先遍历一遍链表获取链表长度，再遍历一遍删除倒数第n个节点
      */
-    public static ListNode kthNodeFromEnd1(ListNode head, int k){
+    public static LinkedNode kthNodeFromEnd1(LinkedNode head, int k){
         if (head == null || k <= 0){
             return null;
         }
         int count = 1;
-        ListNode curNode = head;
+        LinkedNode curNode = head;
         while (curNode.next != null){
             count++;
             curNode = curNode.next;
@@ -42,12 +42,12 @@ public class PrintKthNodeFromEnd {
      * @param k
      * @return
      */
-    public static ListNode kthNodeFromEnd2(ListNode head, int k){
+    public static LinkedNode kthNodeFromEnd2(LinkedNode head, int k){
         if (head == null || k < 0){
             return null;
         }
-        ListNode ahead = head;
-        ListNode bhead = head;
+        LinkedNode ahead = head;
+        LinkedNode bhead = head;
         for (int i = 0; i < k - 1; i++){
             if (ahead.next != null){
                 ahead = ahead.next;
@@ -63,8 +63,8 @@ public class PrintKthNodeFromEnd {
     }
 
     public static void main(String[] args) {
-        ListNode node1 = ListNode.createListNode(new int[]{1, 2, 3, 4, 5, 6});
-        ListNode node = kthNodeFromEnd2(node1, 2);
+        LinkedNode node1 = LinkedNode.createLinkedNode(new int[]{1, 2, 3, 4, 5, 6});
+        LinkedNode node = kthNodeFromEnd2(node1, 2);
         System.out.println(node.value);
     }
 }

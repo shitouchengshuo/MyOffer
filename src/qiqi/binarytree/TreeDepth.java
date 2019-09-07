@@ -25,12 +25,12 @@ public class TreeDepth {
        int left = treeDepth(node.leftNode);
        //获取右子树的深度
        int right = treeDepth(node.rightNode);
-       //比较
-       return left> right ? (left + 1) :(right + 1);
+       //比较,递归返回上一层时深度 +1
+       return left > right ? (left + 1) : (right + 1);
     }
 
     public static void main(String[] args) {
-        BinaryTreeNode binaryTree = BinaryTreeUtil.createBinaryTree(new int[]{5,6,7,8,9,10,11,12});
+        BinaryTreeNode binaryTree = BinaryTreeUtil.createBinaryTree(new int[]{5,3,7,2,4,6,8});
         int depth = treeDepth(binaryTree);
         System.out.println("depth: " + depth);
         List<String> list= null;

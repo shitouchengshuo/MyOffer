@@ -1,7 +1,5 @@
 package qiqi.array;
 
-import qiqi.test.SortUtils;
-
 /**
  * [1,0,3,0,12] --->[1,3,12,0,0]
  * @author qiqi.zhao
@@ -43,7 +41,7 @@ public class MoveZeros {
         for (int i = 0; i < array.length; i++){
             if (array[i] != 0){
                 if (i != k) {
-                    SortUtils.swap(array, k++, i);
+                    swap(array, k++, i);
                 }else {
                     k++;
                 }
@@ -52,6 +50,11 @@ public class MoveZeros {
         return array;
     }
 
+    public static void swap(int[] array, int i, int j){
+        int temp = array[i];
+        array[i] = array[j];
+        array[j] = temp;
+    }
     public static void main(String[] args) {
         int[] move = move2(new int[]{1, 0, 3, 0,12});
         for (int bumber : move){

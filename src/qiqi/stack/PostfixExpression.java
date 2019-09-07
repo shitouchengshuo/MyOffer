@@ -37,7 +37,7 @@ public class PostfixExpression {
                     break;
                 case '*':
                 case '/':
-                    while (stack.size() > 0){
+                    while (!stack.isEmpty()){
                         char temp = stack.pop();
                         if (temp == '+' || temp == '-' || temp == '('){
                             stack.push(temp);

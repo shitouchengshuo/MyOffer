@@ -18,6 +18,7 @@ public class BinaryTreeNode {
     public BinaryTreeNode rightNode;
 
     public BinaryTreeNode() {}
+
     public BinaryTreeNode(int value) {
         this.value = value;
     }

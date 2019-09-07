@@ -1,6 +1,5 @@
 package qiqi.array;
 
-import qiqi.test.SortUtils;
 
 /**
  * 给定一个有n个元素的数组，数组中元素的取值只有只有0、1、2这三个可能，为这个数组排序。
@@ -42,12 +41,18 @@ public class Sort012 {
             if (nums[i] == 1){
                 i++;
             }else if (nums[i] == 2){
-                SortUtils.swap(nums, --two, i);
+                swap(nums, --two, i);
             }else {
                 assert (nums[i] == 0);
-                SortUtils.swap(nums, ++zero, i++);
+                swap(nums, ++zero, i++);
             }
         }
+    }
+
+    public static void swap(int[] array, int i, int j){
+        int temp = array[i];
+        array[i] = array[j];
+        array[j] = temp;
     }
 
     public static void main(String[] args) {

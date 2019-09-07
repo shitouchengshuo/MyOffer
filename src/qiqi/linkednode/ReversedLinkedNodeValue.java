@@ -1,4 +1,4 @@
-package qiqi.listnode;
+package qiqi.linkednode;
 
 import java.util.Stack;
 
@@ -6,25 +6,25 @@ import java.util.Stack;
  * 输入一个链表的头节点，从尾到头反过来打印出每个节点的值
  * @author
  */
-public class ReversedListNodeValue {
+public class ReversedLinkedNodeValue {
 
-    public static void reverseList(ListNode headNode){
-        Stack stack = new Stack<ListNode>();
+    public static void reverseList(LinkedNode headNode){
+        Stack stack = new Stack<LinkedNode>();
         while (headNode != null){
             stack.push(headNode);
             headNode = headNode.next;
         }
 
         while (!stack.isEmpty()){
-            ListNode listNode = (ListNode) stack.pop();
+            LinkedNode listNode = (LinkedNode) stack.pop();
             System.out.println(listNode.value);
         }
     }
 
     public static void main(String[] args) {
-        ListNode node1 = new ListNode(1);
-        ListNode node2 = new ListNode(2);
-        ListNode node3 = new ListNode(3);
+        LinkedNode node1 = new LinkedNode(1);
+        LinkedNode node2 = new LinkedNode(2);
+        LinkedNode node3 = new LinkedNode(3);
         node1.next = node2;
         node2.next = node3;
         reverseList(node1);

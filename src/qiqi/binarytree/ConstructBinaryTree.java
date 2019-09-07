@@ -1,11 +1,9 @@
 package qiqi.binarytree;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 /**
- * 构建二叉树
+ * 构建完全二叉树
  * @author
  */
 public class ConstructBinaryTree {
@@ -18,24 +16,24 @@ public class ConstructBinaryTree {
         if (array == null || array.length == 0){
             return null;
         }
-        List<BinaryTreeNode> nodes = new ArrayList<>();
         // 将一个数组的值依次转换为Node节点
+        BinaryTreeNode[] trees = new BinaryTreeNode[array.length];
         for (int i = 0; i < array.length; i++){
-            nodes.add(new BinaryTreeNode(array[i]));
+            trees[i] = new BinaryTreeNode(array[i]);
         }
         // 对前(父节点个数-1)个父节点，按照父节点与孩子节点的数字关系建立二叉树
-        int length = array.length / 2 - 1;
-        for (int i = 0; i < length; i++){
-            nodes.get(i).leftNode = nodes.get(2 * i + 1);
-            nodes.get(i).rightNode = nodes.get(2 * i + 2);
+        int fatherLength = array.length / 2 - 1;
+        for (int i = 0;  i < fatherLength; i++){
+            trees[i].leftNode = trees[2 * i + 1];
+            trees[i].rightNode = trees[2 * i + 2];
         }
         // 因为最后一个父节点可能没有右孩子，所以单独拿出来处理
-        nodes.get(length).leftNode = nodes.get(2 * length + 1);
+        trees[fatherLength].leftNode = trees[2 * fatherLength + 1];
         // 右孩子,如果数组的长度为奇数才建立右孩子
-        if (array.length % 2 == 1){
-            nodes.get(length).rightNode = nodes.get(2 * length + 2);
+        if ( array.length % 2 == 1){
+            trees[fatherLength].rightNode = trees[2 * fatherLength + 2];
         }
-        return nodes.get(0);
+        return trees[0];
     }
 
     /**
@@ -45,13 +43,13 @@ public class ConstructBinaryTree {
      * @return
      * @throws Exception
      */
-    public static BinaryTreeNode construct(int[] preOrder, int[] inOrder) throws Exception{
+    public static BinaryTreeNode construct(int[] preOrder, int[] inOrder) {
 
         if (preOrder == null || inOrder == null){
             return null;
         }
         if (preOrder.length != inOrder.length){
-            throw new Exception("the length of array is error");
+            throw new RuntimeException("the length of array is error");
         }
         BinaryTreeNode root = new BinaryTreeNode();
         for (int i = 0; i < inOrder.length; i++){
@@ -68,10 +66,10 @@ public class ConstructBinaryTree {
     }
 
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
 
-        // int[] preSort = {1,2,4,7,3,5,6,8};
-        // int[] inSort = {4,7,2,1,5,3,8,6};
-        // BinaryTreeNode root = construct(preSort,inSort);
+        int[] preSort = {8,6,5,7,10,9,11};
+        int[] inSort = {5,6,7,8,9,10,11};
+        BinaryTreeNode root = construct(preSort,inSort);
     }
 }

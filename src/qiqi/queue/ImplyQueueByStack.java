@@ -1,4 +1,4 @@
-package qiqi.stack;
+package qiqi.queue;
 
 
 import java.util.Stack;

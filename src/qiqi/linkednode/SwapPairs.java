@@ -1,4 +1,4 @@
-package qiqi.listnode;
+package qiqi.linkednode;
 
 /**
  * 给定一个链表，对于每两个相邻的节点，交换其位置
@@ -10,16 +10,16 @@ package qiqi.listnode;
  */
 public class SwapPairs {
 
-    public static ListNode swapPairs(ListNode head){
+    public static LinkedNode swapPairs(LinkedNode head){
 
         //创建虚的头节点，避免针对头指针的复制操作
-        ListNode dummyHead = new ListNode(0);
+        LinkedNode dummyHead = new LinkedNode(0);
         dummyHead.next = head;
-        ListNode p = dummyHead;
+        LinkedNode p = dummyHead;
         while (p.next != null && p.next.next != null){
-            ListNode node1 = p.next;
-            ListNode node2 = node1.next;
-            ListNode next = node2.next;
+            LinkedNode node1 = p.next;
+            LinkedNode node2 = node1.next;
+            LinkedNode next = node2.next;
 
             p.next = node2;
             node2.next = node1;
@@ -30,8 +30,8 @@ public class SwapPairs {
     }
 
     public static void main(String[] args) {
-        ListNode head = ListNode.createListNode(new int[]{1, 2, 3, 4});
-        ListNode.printListNode(swapPairs(head));
+        LinkedNode head = LinkedNode.createLinkedNode(new int[]{1, 2, 3, 4});
+        LinkedNode.printLinkedNode(swapPairs(head));
         System.out.println();
     }
 }

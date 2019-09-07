@@ -1,4 +1,4 @@
-package qiqi.listnode;
+package qiqi.linkednode;
 
 /**
  * 删除链表的节点,并返回新链表的头节点
@@ -13,7 +13,7 @@ public class DeleteNode {
      * @param toBeDeleted
      * @return
      */
-    public static ListNode deleteNode1(ListNode head, ListNode toBeDeleted) {
+    public static LinkedNode deleteNode1(LinkedNode head, LinkedNode toBeDeleted) {
         // 如果输入参数有空值就返回表头节点
         if (head == null || toBeDeleted == null) {
             return head;
@@ -22,7 +22,7 @@ public class DeleteNode {
         if (head == toBeDeleted) {
             return head.next;
         }
-        ListNode curNode = head;
+        LinkedNode curNode = head;
         while ( curNode.next != null){
             if (curNode.next.value == toBeDeleted.value){
                 //删除节点

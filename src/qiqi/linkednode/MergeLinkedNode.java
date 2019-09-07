@@ -1,12 +1,12 @@
-package qiqi.listnode;
+package qiqi.linkednode;
 
 /**
  * 合并两个有序链表
  * @author qiqi.zhao
  */
-public class MergeListNode {
+public class MergeLinkedNode {
 
-    public static ListNode merge(ListNode node1, ListNode node2){
+    public static LinkedNode merge(LinkedNode node1, LinkedNode node2){
         if (node1 == null){
             return  node2;
         }
@@ -14,9 +14,9 @@ public class MergeListNode {
             return  node1;
         }
         // 创建一个临时节点，方便添加元素
-        ListNode mergeNode = new ListNode();
+        LinkedNode mergeNode = new LinkedNode();
         // 用于指向合并后的新链的尾节点
-        ListNode pointer = mergeNode;
+        LinkedNode pointer = mergeNode;
         while ( node1 != null && node2 != null){
            if (node1.value < node2.value){
                pointer.next = node1;
@@ -39,8 +39,8 @@ public class MergeListNode {
 
 
     public static void main(String[] args) {
-        ListNode node1 = ListNode.createListNode(new int[]{1, 4, 6, 7});
-        ListNode node2 = ListNode.createListNode(new int[]{2, 3, 5, 8});
-        ListNode.printListNode(merge(node1, node2));
+        LinkedNode node1 = LinkedNode.createLinkedNode(new int[]{1, 4, 6, 7});
+        LinkedNode node2 = LinkedNode.createLinkedNode(new int[]{2, 3, 5, 8});
+        LinkedNode.printLinkedNode(merge(node1, node2));
     }
 }
