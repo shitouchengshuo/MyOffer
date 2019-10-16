@@ -8,13 +8,12 @@ package qiqi.sort;
  * 而记录移动的最大值也达到了 (n+4)(n-1)/2 次。 如果排序记录是随机的，那么根据概率相同的原则，
  * 平均比较和移动次数约为(n^2)/4次，因此，得出直接插入排序发的时间复杂度为O(n^2)。从这里可以看出，
  * 同样的是时间复杂度，直接插入排序法比冒泡和简单选择排序的性能要好一些。
+ * @author
  */
 public class InsertSort {
 
-    private static int[] array = new int[]{5,3,7,4,2,1,4,6,8};
-
     public static void insertSort(int[] arr) {
-        if (arr == null || arr.length < 1){
+        if (arr == null || arr.length == 0){
             return;
         }
         for (int i = 1; i < arr.length; i++){
@@ -30,6 +29,7 @@ public class InsertSort {
 
 
     public static void main(String[] args) {
+        int[] array = new int[]{5,3,7,4,2,1,4,6,8};
         insertSort(array);
         for (int n : array){
             System.out.print(n);

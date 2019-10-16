@@ -1,5 +1,6 @@
 package java8.entity;
 
+import com.google.common.base.Objects;
 import lombok.Data;
 
 import java.util.ArrayList;
@@ -29,4 +30,5 @@ public class User {
         userList.add(null);
         System.out.println(userList.size());
     }
+
 }

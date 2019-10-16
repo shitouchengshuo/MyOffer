@@ -1,13 +1,14 @@
 package qiqi.sort;
 
 /**
- * 快速排序 平均O(nlogn) 最好O(nlogn) 最坏O(n^2)
+ * 快速排序 平均O(nlogn) 最好,主元每次正好中分数组O(nlogn) 最坏，主元每次都在两端O(n^2)
+ * 不稳定排序
  */
 public class QuickSort {
 
     public static int partition(int[] array, int left, int right){
         int i,j,base,temp;
-        //基准数
+        //基准数,最好选择中位数
         base = array[left];
         i = left;
         j = right;

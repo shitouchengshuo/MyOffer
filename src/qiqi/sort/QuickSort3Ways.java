@@ -19,39 +19,47 @@ package qiqi.sort;
  • i指针使得元素（arr[lt]-arr[i-1]）的值均等于切分元素，（arr[i]-arr[gt]）的元素还没被扫描，切分算法执行到i>gt为止；
  • 每次切分之后，位于指针lt和指针gt之间的元素的位置都已经被排定，不需要再去移动了。
    之后将（lo,lt-1）,（gt+1,hi）分别作为处理左子数组和右子数组的递归函数的参数传入，递归结束，整个算法也就结束。
+ @author qiqi.zhao
  */
 public class QuickSort3Ways {
 
     private static int[] arr = new int[]{5,3,7,9,2,1,4,6,8,6,6,3,3,2,2,1,1,9,9,9};
 
-    static void quickSort3Ways ( int left, int right ) {
-
+    public static void quickSort3Ways (int[] array, int left, int right ) {
+        //单个元素或者没有元素的情况
         if (left >= right) {
-            return;  //单个元素或者没有元素的情况
+            return;
         }
-//       if (right - left <= 15) {// 当分块中元素为15+1时，换成插入排序
-//           InsertSort.insertSort(arr);
-//           return;
-//       }
-        int v = arr[left];  //第一个元素是切分元素
-        int i = left + 1;   //第一个元素是切分元素，所以指针i可以从left+1开始
+        // 当分块中元素为15+1时，换成插入排序
+        if (right - left <= 15) {
+            InsertSort.insertSort(arr);
+            return;
+        }
+        //第一个元素是切分元素
+        int v = arr[left];
+        //第一个元素是切分元素，所以指针i可以从left+1开始
+        int i = left + 1;
         int lt = left;
         int gt = right;
 
         while ( i <= gt ) {
-            if (arr[i] < v) {       //小于切分元素的放在lt左边，因此指针lt和指针i整体右移
-                swap(lt++, i++);    // i++   表示继续遍历下一个元素  lt++  表示<v的部分多了一个元素
-            }else if (arr[i] > v){  //大于切分元素的放在gt右边，因此指针gt需要左移
-                swap(i, gt--);      // 此时i不用动，因为交换过来的元素还没有考虑他的大小
+            //小于切分元素的放在lt左边，因此指针lt和指针i整体右移
+            if (arr[i] < v) {
+                // i++   表示继续遍历下一个元素  lt++  表示<v的部分多了一个元素
+                swap(lt++, i++);
+                //大于切分元素的放在gt右边，因此指针gt需要左移
+            }else if (arr[i] > v){
+                // 此时i不用动，因为交换过来的元素还没有考虑他的大小
+                swap(i, gt--);
             }else{
                 i++;
             }
         }
         //lt~gt的元素已经排定，只需对it左边和gt右边的元素进行递归求解
-        quickSort3Ways(left, lt - 1);
-        quickSort3Ways(gt + 1, right);
+        quickSort3Ways(array, left, lt - 1);
+        quickSort3Ways(array,gt + 1, right);
     }
-    static void swap( int i,int j ){
+    public static void swap( int i,int j ){
         int temp = arr[i];
         arr[i] = arr[j];
         arr[j] = temp;
@@ -59,7 +67,7 @@ public class QuickSort3Ways {
 
     public static void main(String[] args) {
 
-        quickSort3Ways(0, arr.length-1);
+        quickSort3Ways(arr, 0, arr.length-1);
         for (int i = 0; i < arr.length; i++){
             System.out.print(arr[i]);
         }

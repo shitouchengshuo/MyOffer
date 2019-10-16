@@ -6,10 +6,8 @@ package qiqi.sort;
  */
 public class SelectionSort {
 
-    private static int[] array = new int[]{5,3,7,4,2,1,4,6,8};
-
     public static void selectionSort(int[] arr) {
-        if (arr == null || arr.length < 1) {
+        if (arr == null || arr.length == 0) {
             return;
         }
         for (int i = 0; i < arr.length; i++){
@@ -26,6 +24,7 @@ public class SelectionSort {
     }
 
     public static void main(String[] args) {
+        int[] array = new int[]{5,3,7,4,2,1,4,6,8};
         selectionSort(array);
         for (int n : array){
             System.out.print(n);

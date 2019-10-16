@@ -5,7 +5,7 @@ package qiqi.sort;
  * 该方法的基本思想是：先将整个待排元素序列分割成若干个子序列（由相隔某个“增量”的元素组成的）分别进行直接插入排序，
  * 然后依次缩减增量再进行排序，待整个序列中的元素基本有序（增量足够小）时，再对全体元素进行一次直接插入排序。
  * 因为直接插入排序在元素基本有序的情况下（接近最好情况），效率是很高的，因此希尔排序在时间效率上比前两种方法有较大提高。
- * 时间复杂度：受增量序列影响，当增量k = 2^x时，O(n^2)，当增量 k = 3x+1时，O(n^(3/2))
+ * 时间复杂度：受增量序列影响，当增量序列D(x) = 2^x时，O(n^2)，当增量序列D(x) = 2^x - 1时(相邻元素互质，即没有公因子)，O(n^(3/2))
  *
  * 第一次分成5组   gap = 10/2=5
  *   49  38  65  97  26  13  27  49  55  4
@@ -26,14 +26,16 @@ package qiqi.sort;
  *
  * 第四次  gap = 1/2 = 0
  *    4  13  26  27  38  49  49  55  65  97
-  */
+ * @author qiqi.zhao
+ */
 public class ShellSort {
 
     public static void shellSort(int[] array){
         if (array == null || array.length < 1){
             return;
         }
-        int number = array.length / 2;
+        int number = (array.length + 1)/ 2;
+        int c = 0;
         while (number >= 1){
             for (int i = number; i < array.length; i++ ){
                 int key = array[i];
@@ -44,7 +46,14 @@ public class ShellSort {
                 }
                 array[j + number] = key;
             }
-            number = number / 2;
+            number = (number+1) / 2;
+
+            if (number == 1){
+                c++;
+            }
+            if (c == 2){
+                return;
+            }
         }
     }
 
