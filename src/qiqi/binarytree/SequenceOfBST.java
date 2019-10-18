@@ -8,18 +8,19 @@ import java.util.Arrays;
  * 例如在下面的一颗二叉搜索树中，输入数组{5,7,6,9,11,10,8}，则返回true，
  * 因为这个整数序列是下图二叉搜索树的后序遍历结果。
  * 如果输入的数组是{7,4,6,5}，由于没有哪棵二叉搜索树的后序遍历的结果是这个序列，因此返回false。
+ * @author
  */
 public class SequenceOfBST {
     public static boolean sequenceOfBST(int[] sequence){
         int length = sequence.length;
-        if (sequence == null || length <= 0){
+        if (sequence == null || length == 0){
             return false;
         }
         //二叉搜索树的根节点是后序遍历的最后一个值
         int root = sequence[length - 1];
         int i = 0;
         // 在二叉搜索树中左子树的节点小于根节点
-        for (; i < length-1; i++){
+        for (; i < length - 1; i++){
             if (sequence[i] > root){
                 break;
             }

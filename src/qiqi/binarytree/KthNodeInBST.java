@@ -1,5 +1,7 @@
 package qiqi.binarytree;
 
+import java.util.Stack;
+
 /**
  * 题目描述：给定一颗二叉搜索树，请找出其中的第k大的节点。
  * 分析：
@@ -14,11 +16,15 @@ package qiqi.binarytree;
  * 递归顺序：5->3(5左)->2(3左)->(2左)->return,count++->(2右)->return,count++->4(3右)->(4左)->return,count++->(4右)
  *          ->return,count++->7(5右)->6(7左)->(6左)->return,count++->(6右)->return,count++->8(7右)->(8左)
  *          ->return,count++->(8右)
+ * @author
  */
 public class KthNodeInBST {
 
-    // 遍历计数
+    /**
+     * 遍历计数
+     */
     private static int count = 0;
+
     private static BinaryTreeNode kthNodeInBST(BinaryTreeNode root, int k) {
         if(root == null || k <= 0){
             return null;
@@ -44,5 +50,41 @@ public class KthNodeInBST {
         return target;
     }
 
+    private static int kthNodeInBST1(BinaryTreeNode root, int k) {
+        if(root == null || k <= 0){
+            return -1;
+        }
+        int count  = 0;
+        Stack<BinaryTreeNode> stack = new Stack<>();
+        BinaryTreeNode pnood = root;
+        while ( pnood != null|| !stack.isEmpty()){
+            while (pnood != null){
+                stack.push(pnood);
+                pnood = pnood.leftNode;
+            }
+            if (!stack.isEmpty()){
+                BinaryTreeNode pop = stack.pop();
+                count++;
+                if (count == k){
+                    return pop.value;
+                }
 
+                pnood = pop.rightNode;
+            }
+        }
+        return -1;
+    }
+
+
+    public static void main(String[] args) {
+
+        //      8
+        //    /    \
+        //   6     10
+        //  / \    / \
+        // 5   7  9  11
+        BinaryTreeNode node = BinaryTreeUtil.createBinaryTree(new int[]{8, 6, 10, 5, 7, 9, 11});
+        System.out.println(kthNodeInBST1(node, 5));
+
+    }
 }

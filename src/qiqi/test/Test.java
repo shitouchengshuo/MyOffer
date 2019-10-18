@@ -1,29 +1,49 @@
 package qiqi.test;
 
-import util.SwapUtil;
+import qiqi.binarytree.BinaryTreeNode;
+import qiqi.binarytree.BinaryTreeUtil;
+import qiqi.binarytree.SequenceOfBST;
+
+import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Stack;
 
 public class Test  {
 
-    public static void selectionSort(int[] arr) {
-        if (arr == null || arr.length < 1) {
-            return;
+    public static boolean sequenceOfBST(int[] sequence){
+        int length = sequence.length;
+        if (sequence == null || length == 0){
+            return false;
         }
-        for (int i = 0; i < arr.length; i++){
-            int min = i;
-            for ( int j = i + 1; j < arr.length; j++){
-                if (arr[j] < arr[min]){
-                    min = j;
-                }
+        int root = sequence[length - 1];
+        int i = 0;
+        for (; i < length - 1; i++){
+            if (sequence[i] > root){
+                break;
             }
-            SwapUtil.swap(arr, min, i);
         }
+        for (int j = i; j < length - 1; j++){
+            if (sequence[j] < root){
+                return false;
+            }
+        }
+        boolean a = true;
+        if ( i >0){
+            a = sequenceOfBST(Arrays.copyOfRange(sequence, 0, i));
+
+        }
+        boolean b = true;
+        if (i < length -1) {
+            b = sequenceOfBST(Arrays.copyOfRange(sequence, i, length -1));
+
+        }
+        return a && b;
     }
 
     public static void main(String[] args) {
-        int[] array = new int[]{5,3,7,4,2,1,4,6,8};
-        selectionSort(array);
-        for (int n : array){
-            System.out.print(n);
-        }
+        int[] data = { 5,7,6,9,11,10,8 };
+        boolean result = SequenceOfBST.sequenceOfBST(data);
+        System.out.println(result);
     }
 }

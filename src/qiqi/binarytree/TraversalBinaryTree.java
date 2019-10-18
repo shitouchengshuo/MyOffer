@@ -185,14 +185,6 @@ public class TraversalBinaryTree {
         BinaryTreeUtil.preOrder(node);
         System.out.println(" ");
         preOrderByStack1(node);
-        System.out.println(" ");
-        BinaryTreeUtil.inOrder(node);
-        System.out.println(" ");
-        inOrderByStack(node);
-        System.out.println(" ");
-        BinaryTreeUtil. postOrder(node);
-        System.out.println(" ");
-        postOrderByStack(node);
-        levelOrder(node);
+
     }
 }
