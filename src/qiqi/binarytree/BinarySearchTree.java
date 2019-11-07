@@ -1,7 +1,7 @@
 package qiqi.binarytree;
 
 /**
- * 二叉搜索树
+ * 二叉搜索树相关算法
  * @author qiqi.zhao
  * @date 2019/9/3
  */
@@ -118,7 +118,7 @@ public class BinarySearchTree {
     }
 
     /**
-     * 插入
+     * 插入一个结点
      * @param root
      * @param value
      * @return
@@ -139,7 +139,7 @@ public class BinarySearchTree {
     }
 
     /**
-     *删除节点
+     *  删除节点
      */
     public static BinaryTreeNode delete(BinaryTreeNode root, int target){
         BinaryTreeNode temp;
