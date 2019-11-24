@@ -54,7 +54,7 @@ public class Test  {
                         Arrays.copyOfRange( inOrder,i + 1, inOrder.length));
             }
 
-            
+
         }
         return root;
     }
